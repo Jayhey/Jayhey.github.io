@@ -1,0 +1,119 @@
+---
+title:  DenseNet(Densely connected Convolutional Networks) - 2
+description: DenseNet의 전반적인 특징을 살펴봤다면 이제 네트워크 구조에 대해 자세히 살펴봅시다.
+categories:
+ - Deep Learning
+tags:
+---
+<!-- TOC -->
+
+- [DenseNet architecture 자세히 살펴보기](#densenet-architecture-자세히-살펴보기)
+    - [ResNet과 DenseNet 수식으로 비교 해보기](#resnet과-densenet-수식으로-비교-해보기)
+    - [Composite function](#composite-function)
+    - [pooling layers](#pooling-layers)
+        - [Growth rate](#growth-rate)
+    - [Bottleneck layers](#bottleneck-layers)
+    - [Compession](#compession)
+
+<!-- /TOC -->
+
+<br>
+
+# DenseNet architecture 자세히 살펴보기
+
+<br>
+
+이전 포스트에서 언급한 DenseNet의 장점에 대해 다시 요약 해보자면 아래와 같습니다.
+
+- Dense connectivity advantages
+    1. They alleviate the vanishing-gradient problem
+    2. Strengthen feature propagation
+    3. Encourage feature reuse
+    4. Substantially reduce the number of parameters(less complexity)
+    5. Reduce overfitting on tasks with smaller training set sizes.
+
+논문의 저자들이 ResNet 구조랑 굉장히 많은 비교를 하면서 어필하는 장점들입니다. 이는 모두 skip-connection에서 dense connectivity로 바뀌면서 만들어지는 효과라고 볼 수 있습니다.  
+(사실 이 논문이 나오기 전까지 ResNet이 SOTA(State Of The Art)였기 때문으로 보입니다)
+
+<br>
+
+## ResNet과 DenseNet 수식으로 비교 해보기
+
+Skip connection과 dense connectivity를 수식으로 나타내봅시다.
+
+<br>
+
+**$${ x }_{ l }={ H }_{ l }({ x }_{ l-1 })+{ x }_{ l-1 }\quad \quad { x }_{ l }={ H }_{ l }([{ x }_{ 0 },{ x }_{ 1 },...,{ x }_{ l }])$$**
+
+<br>
+
+좌측 식은 ResNet이고 우측 식은 DenseNet입니다.  [이전 포스트](https://jayhey.github.io/deep%20learning/2017/10/13/DenseNet_1.html)에서도 다룬 내용이지만 ResNet은 summation(텐서플로우에서는 tf.add)을 사용하였기 때문에 information flow가 결국 점점 옅어지며 information 흐름을 방해합니다. 하지만 DenseNet은 차곡차곡 쌓아가면서 uncorrelated feature들도 손쉽게 가져가는 구조입니다.
+
+<br>
+
+## Composite function
+
+
+배치 노말라이제이션(BN : Batch Normalization), 렐루(ReLU : Rectified Linear Unit), 콘볼루션(Convolution) 순서에 따른 효율성을 연구한 논문을 인용하면서 각 레이어마다 BN, ReLU, Convolution 순서대로 구조를 짭니다.
+
+<div align="center"><a href="https://imgur.com/9YggoGH"><img src="https://i.imgur.com/9YggoGH.png" width="450px" title="source: imgur.com" /></a></div>
+
+<br>
+
+## pooling layers
+
+위 수식의 concatenation($H_l$)은 feature map 사이즈가 변하면 연산이 불가능합니다. 그리고 convolutional network의 가장 큰 특징 중 하나라면 pooling으로 feature map size를 줄이는 것입니다. 그래서 DenseNet은 네트워크 전체를 몇 개의 dense block으로 나눠서 같은 feature map size를 가지는 레이어들은 같은 dense block내로 묶습니다. 
+
+<br>
+
+<a href="https://imgur.com/64MoJfm"><img src="https://i.imgur.com/64MoJfm.png" title="source: imgur.com" /></a>
+
+<br>
+
+위 그림에서는 총 3개의 dense block으로 나뉩니다. 같은 블럭 내의 레이어들은 전부 같은 feature map size를 가지게 되죠. 그리고 빨간 네모를 친 pooling과 convolution 부분을 transition layer라고 부릅니다. 이 레이어에서는 배치 노말라이제이션, feature map dimension을 조절하기 위한 1x1 convolution layer 그리고 2x2 average pooling layer가 위치합니다. 만약 dense block1에서 100x100 size의 feature map을 가지고 있었다면 dense block2에서는 50x50 size의 feature map이 되겠죠? 
+
+<br>
+
+### Growth rate
+수식 $H_l$이 k개의 feature map을 생성한다고 하면, $l^{th}$ 레이어는 $k_0+k\times (l-1)$개의 feature map이 입력된다고 할 수 있습니다. 여기서 ${ k }_{ 0 }$는 dense block 첫 번째의 인풋 레이어의 feature map 갯수입니다. 논문에서는 DenseNet과 기존의 네트워크의 다른 점 중 하나로 매우 좁은 레이어(very narrow layers)를 가지고 있다고 언급합니다. $k$를 ***growth rate*** 이라고 하며 실험 결과 ${ k }$값이 낮아도 state-of-the-art의 결과를 보여준다고 합니다. 
+아래는 k=6일 경우 feature map이 어떻게 쌓이는지 간단히 도식화 한 그림입니다.
+
+<br>
+
+<div style="text-align:justify"><a href="https://imgur.com/ucZb4SF"><img src="https://i.imgur.com/ucZb4SF.png" title="source: imgur.com" /></a></div>
+
+<br>
+
+논문에서는 ${ k }$값이 작아도 충분한 이유가 레이어를 지나면서 feature map이 효율적으로 정보를 전달하고 있기 때문이라고 하고 있습니다. [DenseNet - Overview](https://jayhey.github.io/deep%20learning/2017/10/13/DenseNet_1.html)에서도 한 번 다룬 내용이죠?
+
+<a href="https://imgur.com/jLKx3uS"><img src="https://i.imgur.com/jLKx3uS.png" title="source: imgur.com" /></a>
+
+<br>
+
+## Bottleneck layers
+
+이제 각 레이어들이 ${ k }$개의 feature map을 생성하면서 쌓아가는 구조라는 것을 이해했으면, 계산 복잡성을 줄이기 위해서 한 가지 작업을 더 거치게 됩니다. 기존 구조는 아래와 같습니다. 
+
+<br>
+
+<div style="text-align:justify"><a href="https://imgur.com/IjgtkMn"><img src="https://i.imgur.com/IjgtkMn.png" title="source: imgur.com" /></a></div>
+
+<br>
+
+BN -> ReLU -> 3x3 Conv의 구조에서 BN -> ReLU -> 1x1 Conv -> BN -> ReLU -> 3x3 Conv의 Bottleneck 구조를 적용합니다. 이는 계산 복잡성을 줄여주는 효과가 있습니다. 
+
+<br>
+
+<a href="https://imgur.com/vYrWQKQ"><img src="https://i.imgur.com/vYrWQKQ.png" title="source: imgur.com" /></a>
+
+<br>
+
+## Compession
+
+모델을 더 컴팩트하게 만들기 위해서, transition layer에서 feature map의 수를 줄여주는 작업을 하게 됩니다. 아래 그림에서 Dense block 사이에 있는 Convolution layer와 pooling layer를 통틀어 trainsition layer라고 합니다. 만약 dense block을 모두 통과한 feature map의 갯수가 ${ m }$개라면 이 trainsition layer를 거치면 $\theta m$개가 됩니다. 여기서 $ \theta $값은 우리가 지정해주는 하이퍼파라미터(hyper parameter)이며 0보다는 크고 1보다는 작거나 같은 값을 가집니다. 만약 1이라면 feature map의 갯수는 변하지 않고 그대로 계속 쌓여나간다고 할 수 있습니다. 
+
+<a href="https://imgur.com/hEBBgFB"><img src="https://i.imgur.com/hEBBgFB.png" title="source: imgur.com" /></a>
+
+이제 네트워크의 구조에 대해 자세히 알아봤으니 다음 포스트에서는 실험 설계와 결과에 대해 더 자세히 알아보도록 하겠습니다. 
+
+>상기 사용된 이미지들은 DSBA 연구실 김준홍 박사과정의 세미나 발표자료를 활용하여 편집하였습니다. 
