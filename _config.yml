@@ -2,12 +2,12 @@
 # Jekyll & Global Configuration
 ## Docs: https://jekyllrb.com/docs/configuration/
 # ---------------------------------------------------------------
-
+repository: Jayehy/Jayhey.github.io
 # Site
 title: Jaeyun's Blog
-subtitle: 
-description: 머신러닝, 딥러닝
-author: 정재윤
+subtitle: For deep learning
+description: 
+author: Jaeyun Jeong
 # Support language: de, en, fr-FR, id, ja, ko, pt-BR, pt, ru, zh-Hans, zh-hk, zh-tw
 language: ko
 date_format: '%Y-%m-%d'
@@ -15,7 +15,7 @@ date_format: '%Y-%m-%d'
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com' and baseurl as '/child'
 url:
-baseurl:
+baseurl: /blog
 permalink: pretty
 
 # Pagination
@@ -378,9 +378,9 @@ han: false
 #duoshuo_shortname:
 
 # Disqus
-disqus: jayhey-github-io
+disqus: 
   enable: true
-  shortname:
+  shortname: jayhey-github-io
   count: true
   # hide comments (visitors need to click to load the comments)
   # count need to be false when hide is true
@@ -426,7 +426,7 @@ changyan:
 #google_site_verification:
 
 # Google Analytics
-#google_analytics:
+google_analytics: UA-108263034-1
 
 # Yandex Webmaster tools verification setting
 # See: https://webmaster.yandex.ru/
@@ -550,7 +550,7 @@ algolia_search:
 
 # Local search
 local_search:
-  enable: false
+  enable: true
   # if auto, trigger search by changing input
   # if manual, trigger search by pressing enter key or search button
   trigger: auto
