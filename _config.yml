@@ -6,8 +6,8 @@ repository: Jayehy/Jayhey.github.io
 # Site
 title: Jaeyun's Blog
 subtitle: For deep learning
-description: 
-author: Jaeyun Jeong
+description: 안녕하세요 고려대학교 산업경영공학과에서 석사 과정 중인 정재윤입니다. 주 관심분야는 머신러닝입니다. 
+author: 정재윤
 # Support language: de, en, fr-FR, id, ja, ko, pt-BR, pt, ru, zh-Hans, zh-hk, zh-tw
 language: ko
 date_format: '%Y-%m-%d'
@@ -117,10 +117,10 @@ index_with_subtitle: false
 # When running the site in a subdirectory (e.g. domain.tld/blog), remove the leading slash (/archives -> archives)
 menu:
   home: /
-  #categories: /categories/
-  #about: /about/
-  archives: /archives/
+  categories: /category/
   tags: /tags/
+  archives: /archives/
+  about: /about/
   #sitemap: /sitemap.xml
   #commonweal: /404.html
 
@@ -150,8 +150,8 @@ menu_icons:
 # ---------------------------------------------------------------
 
 # Schemes
-scheme: Muse
-#scheme: Mist
+#scheme: Muse
+scheme: Mist
 #scheme: Pisces
 
 
@@ -361,7 +361,7 @@ highlight_theme: normal
 
 # MathJax Support
 mathjax:
-  enable: false
+  enable: true
   per_page: false
   cdn: //cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML
 
