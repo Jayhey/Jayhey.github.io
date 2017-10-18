@@ -215,7 +215,8 @@ font:
 social:
   #LinkLabel: Link
   GitHub: https://github.com/Jayhey
-  E-Mail: mailto:winga1@korea.ac.kr
+  e-mail: mailto:winga1@korea.ac.kr
+  Linkedin: https://www.linkedin.com/in/%EC%9E%AC%EC%9C%A4-%EC%A0%95-3548a7151/?trk=uno-choose-ge-no-intent&dl=no
 
 # Social Links Icons
 # Icon Mapping:
@@ -228,7 +229,8 @@ social_icons:
   # KeyMapsToSocialItemKey: NameOfTheIconFromFontAwesome
   GitHub: github
   Twitter: twitter
-  Weibo: weibo
+  Linkedin: linkedin-square
+  e-mail: envelope
 
 
 # Sidebar Avatar
