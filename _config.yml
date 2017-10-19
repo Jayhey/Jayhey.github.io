@@ -217,7 +217,8 @@ social:
   GitHub: https://github.com/Jayhey
   e-mail: mailto:winga1@korea.ac.kr
   Linkedin: https://www.linkedin.com/in/%EC%9E%AC%EC%9C%A4-%EC%A0%95-3548a7151/?trk=uno-choose-ge-no-intent&dl=no
-
+  Facebook: https://www.facebook.com/jaeyoon.jung.775
+  DSBA Lab: http://dsba.korea.ac.kr
 # Social Links Icons
 # Icon Mapping:
 #   Map a menu item to a specific FontAwesome icon name.
@@ -231,8 +232,8 @@ social_icons:
   Twitter: twitter
   Linkedin: linkedin-square
   e-mail: envelope
-
-
+  Facebook: facebook-square
+  DSBA Lab: laptop
 # Sidebar Avatar
 # in directory: /assets/images/avatar.gif
 #avatar:
