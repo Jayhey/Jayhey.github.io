@@ -1,5 +1,5 @@
 ---
-title: Novelty Detection - Overview
+title: Novelty Detection(이상치 탐지) - Overview
 description: 
 category: Novelty Detection
 tags:
