@@ -64,7 +64,7 @@ $$a={ f }_{ \phi  }(\sum _{ i,j }^{  }{ { g }_{ \theta  }({ o }_{ i },{ o }_{ j 
 
 CLEVR 데이티셋의 description 버젼은 RN에 그대로 집어넣습니다. 질문은 그대로 LSTM을 사용합니다.
 
-## Dealing with natuural language
+## Dealing with natural language
 
 ![Imgur](https://i.imgur.com/haUmUTR.png)
 
@@ -75,7 +75,7 @@ bAbI 데이터셋은 텍스트로만 이루어져있기에 조금 다른 과정�
 모델의 세세한 디테일은 아래와 같습니다.
 - 4 conv layerss with each 24 kernels, ReLU, batch normalization
 - 128 unit LSTM for question processing
-- 32 unit work-lookup embeddings
+- 32 unit word-lookup embeddings
 
 $ { g } _ { \theta  } $는 4개 층으로 이루어진 MLP이고 각 층마자 256개의 히든 노드와 ReLU로 이루어져있습니다. ${ f }_{ \phi  }$는 3개 층이며 각각 256, 256(dropout 50%) 그리고 29개의 히든 노드와 ReLU로 이루어져 있습니다. 
 
