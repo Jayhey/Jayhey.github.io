@@ -1,6 +1,6 @@
 ---
 title: Novelty Detection(이상치 탐지) - Overview
-description: 
+description: 이 카테고리에서 앞으로 다룰 이상치 탐지(Novelty Detection)기법들에 대해 자세히 알아보기 전 과연 이상치 탐지란 무엇인가에 대해 간단히 살펴보도록 하겠습니다.
 category: Novelty Detection
 tags:
 - overview
