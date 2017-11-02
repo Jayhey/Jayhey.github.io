@@ -65,6 +65,7 @@ $$\frac { 1 }{ 2 } (x-\mu )^{ T }{ \sum   }^{ -1 }(x-\mu )$$
 위에서 파란색과 빨간색 정규분포가 있다고 가정하고 x자는 데이터의 위치라고 해봅시다. 그렇다면 데이터가 파란색 분포를 따른다고 할 때와 주황색 분포를 따른다고 할 때 언제 더 설득력이 있을까요? 주황색 분포를 따른다고 할 떄가 더 설득력이 있다고 할 수 있습니다. 그림에서 x자의 데이터를 주황색 정규분포 식에 집어넣으면 $p(x)$값이 나옵니다. **이 값들을 곱했을 때 가장 최대가 되는 분포가 가장 맞는 정규분포라고 할 수 있습니다.** 이를 식으로 표현하면 다음과 같습니다. 1차원 데이터 기준으로 설명하도록 하겠습니다.
 
 $$L=\prod _{ i=1 }^{ N }{ P({ x }_{ i }|\mu ,{ \sigma  }^{ 2 }) } =\prod _{ i=1 }^{ N }{ \frac { 1 }{ \sqrt { 2\pi  } \sigma  } exp(-\frac { ({ x }_{ i }-\mu )^{ 2 } }{ 2{ \sigma  }^{ 2 } } ) } $$
+
 $$\log { L } =-\frac { 1 }{ 2 } \sum _{ i=1 }^{ N }{ \frac { ({ x }_{ i }-\mu )^{ 2 } }{ { \sigma  }^{ 2 } }  } -\frac { N }{ 2 } \log { (2\pi { \sigma  }^{ 2 }) } $$
 
 
@@ -74,10 +75,16 @@ $$\log { L } =-\frac { 1 }{ 2 } \sum _{ i=1 }^{ N }{ \frac { ({ x }_{ i }-\mu )^
 $$\log { L } =-\frac { 1 }{ 2 } \sum _{ i=1 }^{ N }{ \gamma ({ x }_{ i }-\mu )^{ 2 } } -\frac { N }{ 2 } \log { (2\pi ) } +\frac { N }{ 2 } log(\gamma )$$
 
 $$\frac { \partial log{ L } }{ \partial \mu  } =\gamma \sum _{ i=1 }^{ N }{ ({ x }_{ i }-\mu ) } =0$$
+
+
 $$ \rightarrow \quad \mu =\frac { 1 }{ N } \sum _{ i=1 }^{ N }{ { x }_{ i } } $$
 
-$$\frac { \partial log{ L } }{ \partial \gamma  } =-\frac { 1 }{ 2 } \sum _{ i=1 }^{ N }{ ({ x }_{ i }-\mu )^{ 2 } } +\frac { N }{ 2\gamma  } =0\quad $$
+
+$$\frac { \partial log{ L } }{ \partial \gamma  } =-\frac { 1 }{ 2 } \sum _{ i=1 }^{ N }{ ({ x }_{ i }-\mu )^{ 2 } } +\frac { N }{ 2\gamma  } =0 $$
+
+
 $$\rightarrow \quad { \sigma  }^{ 2 }=\frac { 1 }{ N } \sum _{ i=1 }^{ N }{ { (x }_{ i }-\mu )^{ 2 } } $$
+
 
 우리가 아는 식이 드디어 나왔습니다! $\mu$와 $ { \sigma  }^{ 2 }$이 최대 우도 추정법으로 추정한 정규분포의 평균과 분산이라는게 증명됬습니다. 
 
