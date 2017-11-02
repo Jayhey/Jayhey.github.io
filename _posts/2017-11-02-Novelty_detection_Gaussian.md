@@ -4,7 +4,7 @@ description: 이상치 탐지 기법에도 여러가지 방법이 있습니다. 
 category: Novelty Detection
 tags:
 - density based novelty detection
-- novelty detection
+- gaussian distribution
 ---
 
 
