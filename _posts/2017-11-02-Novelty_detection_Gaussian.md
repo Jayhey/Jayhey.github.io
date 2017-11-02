@@ -38,7 +38,9 @@ tags:
 ![Imgur](https://i.imgur.com/o0wdkoW.png)
 
 $$p(x)=\frac { 1 }{ { (2\pi ) }^{ d/2 }{ |\sum  | }^{ 1/2 } } exp[\frac { 1 }{ 2 } (x-\mu )^{ T }{ \sum   }^{ -1 }(x-\mu )]$$
+
 $$\mu =\frac { 1 }{ 2 } \sum _{ { x }_{ i }\in X^{ + } }^{  }{ { x }_{ i } } (mean\quad vector)$$
+
 $$\sum  =\frac { 1 }{ 2 } \sum _{ { x }_{ i }\in X^{ + } }^{  }{ ({ x }_{ i }-\mu )({ x }_{ i }-\mu )^{ T } }, \quad (covariance\quad matrix)$$
 
 위 식에서 ${ X }^{ + }$는 정상 영역인 부분을 뜻합니다. 

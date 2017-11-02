@@ -27,6 +27,5 @@ tags:
 
 ## Components of MoG(Mixture of Gaussian)
 
+이상치가 아닌 일반 데이터일 확률 $p(x)$는 다음과 같이 구할 수 있습니다.
 
-
-ㅇㅇ
