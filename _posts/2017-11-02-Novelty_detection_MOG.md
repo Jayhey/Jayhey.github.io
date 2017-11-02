@@ -31,7 +31,7 @@ tags:
 
 $$p(x|\lambda )=\sum _{ m=1 }^{ M }{ { w }_{ m }g(x|{ \mu  }_{ m },{\sum} _{ m }  } )$$
 
-${ \mu  }_{ m }$와$\sum _{ m }$는 파라미터입니다. 그리고 $M$은 총 몇개의 혼합 가우시안 분포를 따를지 사용자가 지정해주어야 하는 하이퍼 파라미터입니다. 시그마 바로 옆에 있는 ${w}_{m}$은 각 가우시안 분포의 가중치를 뜻합니다 
+$\mu_ m ,\sum_m$는 파라미터입니다. 그리고 $M$은 총 몇개의 혼합 가우시안 분포를 따를지 사용자가 지정해주어야 하는 하이퍼 파라미터입니다. 시그마 바로 옆에 있는 ${w}_{m}$은 각 가우시안 분포의 가중치를 뜻합니다 
 
 혼합 가우시안 모델의 분포식은 다음과 같습니다.
 
@@ -56,7 +56,7 @@ $$\lambda =\left\{ { w }_{ m },{ \mu  }_{ m },{ \sum   }_{ m } \right\} ,m=1,\cd
 
 EM 알고리즘을 혼합 가우시안 모델에 적용하게 되면, E-Step에서는 각 개체 기준 modal에 속할 확률를 합니다. 그리고 M-Step에서는 전체 dataset 관점(${ \mu  }_{ m }$,$\sum _{ m }$)에서 각 modal의 가중치을 구합니다. 
 
-이 과정에 대한 증명은 [위키피디아](https://ko.wikipedia.org/w/index.php?title=%EA%B8%B0%EB%8C%93%EA%B0%92_%EC%B5%9C%EB%8C%80%ED%99%94_%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98&action=edit&section=13)에 자세히 나와있습니다. 그렇게 구한 Expectaion과 Maximization 식을 정리해보면 다음과 같습니다.
+이 과정에 대한 증명은 [위키피디아](https://ko.wikipedia.org/w/index.php?title=%EA%B8%B0%EB%8C%93%EA%B0%92_%EC%B5%9C%EB%8C%80%ED%99%94_%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98&action=edit&section=13)에 자세히 나와있습니다. ~~(사실 여기에 다 쓸수도 있지만 수식이 너무 많아 한세월 걸릴 것 같아서 링크로 올립니다)~~ 그렇게 구한 Expectaion과 Maximization 식을 정리해보면 다음과 같습니다.
 
 - Expectation
 
