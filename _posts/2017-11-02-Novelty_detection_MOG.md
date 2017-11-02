@@ -46,7 +46,7 @@ $$\lambda =\left\{ { w }_{ m },{ \mu  }_{ m },{ \sum   }_{ m } \right\} ,m=1,\cd
 
 그렇다면 혼합 가우시안 모델은 어떤 방식으로 분포를 추정할까요? 단일 가우시안 분포는 convex하기 때문에 해가 정확하게 딱 정해져 있습니다. 그래서 쉽게 최대우도추정법(Maximum likelihood estimation)으로 최적값을 찾아낼 수 있었습니다. 하지만 혼합 가우시안 모델은 convex하지 않아 정해진 최적값을 한 번에 찾을 수 없기 때문에 휴리스틱 기법들로 풀어나가야 합니다. 
 
-![Imgur](https://i.imgur.com/4POAWm8.gif)
+<div align="center"><a href="https://imgur.com/4POAWm8"><img src="https://i.imgur.com/4POAWm8.gif" title="source: imgur.com" /></a></div>
 
 그 중 EM알고리즘(Expectaion-Maximination Algorithm)을 사용하여 추정할 수 있습니다. 이 알고리즘은 매개변수에 관한 추정값으로 log-likelihood의 기댓값을 계산하는 expectation 단계와 이 기댓값을 최대화하는 maximization 단계를 번갈아가며 적용합니다. 위 그림은 실제로 휴리스틱 알고리즘으로 분포를 추정해 나가는 모습입니다.
 
@@ -81,7 +81,7 @@ $${ \sigma  }_{ m }^{ 2(new) }=\frac { \sum _{ i=1 }^{ N }{ p(m|{ x }_{ i },\lam
 $${ \sigma  }^{ 2 }=\frac { 1 }{ d } \sum _{ i=1 }^{ d }{ { \sigma  }^{ 2 } } ,\quad \sum  ={ \sigma  }^{ 2 }\left[ \begin{matrix} 1 & \cdots  & 0 \\ \vdots  & \ddots  & \vdots  \\ 0 & \cdots  & 1 \end{matrix} \right] $$
 
 <div align="center">
-<a href="https://imgur.com/qz0SpKd"><img src="https://i.imgur.com/qz0SpKd.png" width=350 /></a></div>
+<a href="https://imgur.com/qz0SpKd"><img src="https://i.imgur.com/qz0SpKd.png" width="350" /></a></div>
 
 Spherical 공분산 행렬을 사용하면 역시나 마찬가지로 조금 덜 정밀하다는 단점이 있습니다. 하지만 계산 복잡도가 줄어드는 단점이 있습니다. 싱글 가우시안 밀도 추정에서는 단일 분포이므로 쉽게 빠른 시간 안에 추정이 가능하지만 혼합 모델은 시간이 더 걸릴 수 있는 관계로 데이터가 크면 계산 복잡도가 중요 고려 요소에 들어갈 수도 있습니다.
 
@@ -89,7 +89,7 @@ Spherical 공분산 행렬을 사용하면 역시나 마찬가지로 조금 덜 
 
 $$\sum  =\left[ \begin{matrix} { { \sigma  } }_{ 1 }^{ 2 } & \cdots  & 0 \\ \vdots  & \ddots  & \vdots  \\ 0 & \cdots  & { { \sigma  } }_{ d }^{ 2 } \end{matrix} \right] $$
 
-<div align="center"><a href="https://imgur.com/dao2A51"><img src="https://i.imgur.com/dao2A51.png" width=350 /></a></div>
+<div align="center"><a href="https://imgur.com/dao2A51"><img src="https://i.imgur.com/dao2A51.png" width="350" /></a></div>
 
 Spherical보다는 더 정밀하고 마찬가지로 full 공분산 행렬을 사용하는 것에 비해 계산복잡도가 더 낮습니다.
 
@@ -98,6 +98,6 @@ Spherical보다는 더 정밀하고 마찬가지로 full 공분산 행렬을 사
 $$\sum  =\left[ \begin{matrix} { \sigma  }_{ 11 } & \cdots  & { \sigma  }_{ 11 } \\ \vdots  & \ddots  & \vdots  \\ { \sigma  }_{ d1 } & \cdots  & { \sigma  }_{ dd } \end{matrix} \right] $$
 
 
-<div align="center"><a href="https://imgur.com/dDkxgW5"><img src="https://i.imgur.com/dDkxgW5.png" width=350" /></a></div>
+<div align="center"><a href="https://imgur.com/dDkxgW5"><img src="https://i.imgur.com/dDkxgW5.png" width="350" /></a></div>
 
 가장 정밀하지만 그만큼 계산 복잡도도 증가하게 됩니다. 또한 변수가 많아지면 복잡해지면서 공분산 행렬이 singular matrix가 될 수 있다는 리스크가 있습니다.
