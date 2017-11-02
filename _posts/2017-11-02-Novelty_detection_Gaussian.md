@@ -69,7 +69,9 @@ $$\log { L } =-\frac { 1 }{ 2 } \sum _{ i=1 }^{ N }{ \frac { ({ x }_{ i }-\mu )^
 
 
 $$\log { L } =-\frac { 1 }{ 2 } \sum _{ i=1 }^{ N }{ \gamma ({ x }_{ i }-\mu )^{ 2 } } -\frac { N }{ 2 } \log { (2\pi ) } +\frac { N }{ 2 } log(\gamma )$$
+
 $$\frac { \partial log{ L } }{ \partial \mu  } =\gamma \sum _{ i=1 }^{ N }{ ({ x }_{ i }-\mu ) } =0\quad \rightarrow \quad \mu =\frac { 1 }{ N } \sum _{ i=1 }^{ N }{ { x }_{ i } } $$
+
 $$\frac { \partial log{ L } }{ \partial \gamma  } =-\frac { 1 }{ 2 } \sum _{ i=1 }^{ N }{ ({ x }_{ i }-\mu )^{ 2 } } +\frac { N }{ 2\gamma  } =0\quad \rightarrow \quad { \sigma  }^{ 2 }=\frac { 1 }{ N } \sum _{ i=1 }^{ N }{ { (x }_{ i }-\mu )^{ 2 } } $$
 
 우리가 아는 식이 드디어 나왔습니다! $\mu$와 $ { \sigma  }^{ 2 }$이 최대 우도 추정법으로 추정한 정규분포의 평균과 분산이라는게 증명됬습니다. 
