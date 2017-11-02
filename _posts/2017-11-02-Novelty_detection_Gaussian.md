@@ -1,9 +1,9 @@
 ---
-title: Density based Novelty Detection - Gaussian Density Estimation
-description: 이상치 탐지 기법에도 여러가지 방법이 있습니다. 그 중에서 밀도 기반 이상치 탐지법을 앞으로 몇 개 소개해 드릴텐데요, 가장 먼저 가우시안 밀도 추정법에 대해 설명드리겠습니다.
+title: 가우시안 밀도 추정법(Gaussian density estimation)
+description: 이상치 탐지 기법에도 여러가지 방법이 있습니다. 그 중에서 밀도 기반 이상치 탐지법(Density based novelty detection)을 앞으로 몇 개 소개해 드릴텐데요, 가장 먼저 가우시안 밀도 추정법(Gaussian density estimation)에 대해 설명드리겠습니다.
 category: Novelty Detection
 tags:
-- Gaussian density estimation
+- density based novelty detection
 - novelty detection
 ---
 
@@ -102,7 +102,7 @@ $${ \sigma  }^{ 2 }=\frac { 1 }{ d } \sum _{ i=1 }^{ d }{ { \sigma  }^{ 2 } } ,\
 
 $$\sum  =\left[ \begin{matrix} { { \sigma  } }_{ 1 }^{ 2 } & \cdots  & 0 \\ \vdots  & \ddots  & \vdots  \\ 0 & \cdots  & { { \sigma  } }_{ d }^{ 2 } \end{matrix} \right] $$
 
-이번에는 diagonal type입니다. spherical보다 좀 더 엄격하게 보는 방법입니다. 축이 틀어지지는 않지만(각 변수별로 수직) 값이 다르기 때문에 축 길이는 다르게 됩니다.
+이번에는 diagonal type입니다. Spherical보다 좀 더 엄격하게 보는 방법입니다. 축이 틀어지지는 않지만(각 변수별로 수직) 값이 다르기 때문에 축 길이는 다르게 됩니다.
 
 
 ![Imgur](https://i.imgur.com/VAIKKYd.png)
@@ -111,7 +111,7 @@ $$\sum  =\left[ \begin{matrix} { { \sigma  } }_{ 1 }^{ 2 } & \cdots  & 0 \\ \vdo
 
 $$\sum  =\left[ \begin{matrix} { \sigma  }_{ 11 } & \cdots  & { \sigma  }_{ 11 } \\ \vdots  & \ddots  & \vdots  \\ { \sigma  }_{ d1 } & \cdots  & { \sigma  }_{ dd } \end{matrix} \right] $$
 
-Full type은 공분산을 전부 고려합니다. 이렇게 고려하면 축이 기울어지게 됩니다. 여기까지 설명을 보시면 왜 굳이 무조건 full을 안쓰고 다른 타입의 공분산 행렬을 쓰는지 이해가 안가시는 분들도 계실 겁니다. 이는 변수가 너무 많아지면 공분산 행렬이 singular matrix가 되어서 역행렬을 구하지 못하게 되기 때문입니다. 이런 위험성이 있기 때문에 보통은 spherical을 많이 사용하며 실제 성능도 괜찮게 나옵니다.
+Full type은 공분산을 전부 고려합니다. Diagonal만 쓰지 않고 전부 쓰게되면 축이 기울어지게 됩니다. 여기까지 설명을 보시면 왜 굳이 무조건 full을 안쓰고 다른 타입의 공분산 행렬을 쓰는지 이해가 안가시는 분들도 계실 겁니다. 이는 변수가 너무 많아지면 공분산 행렬이 singular matrix가 되어서 역행렬을 구하지 못하게 되기 때문입니다. 이런 위험성이 있기 때문에 보통은 spherical을 많이 사용하며 실제 성능도 괜찮게 나옵니다.
 
 ![Imgur](https://i.imgur.com/ic7e1Nx.png)
 
