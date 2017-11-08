@@ -86,9 +86,11 @@ $$\frac { \partial log{ L } }{ \partial \gamma  } =-\frac { 1 }{ 2 } \sum _{ i=1
 $$\rightarrow \quad { \sigma  }^{ 2 }=\frac { 1 }{ N } \sum _{ i=1 }^{ N }{ { (x }_{ i }-\mu )^{ 2 } } $$
 
 
-우리가 아는 식이 드디어 나왔습니다! $\mu$와 $ { \sigma  }^{ 2 }$이 최대 우도 추정법으로 추정한 정규분포의 평균과 분산이라는게 증명됬습니다. 
+우리가 아는 식이 드디어 나왔습니다! 어떤 데이터의 평균과 분산이 $\mu$, $ { \sigma  }^{ 2 }$일때 이를 가장 잘 표현할 수 있는 정규분포의 평균과 분산이 $\mu$와 $ { \sigma  }^{ 2 }$임이 증명되었습니다.
 
-결국 핵심은 $log-likelihood$가 convex이므로 1차 도함수로 최적값을 찾을 수 있다는 것입니다.
+결국 핵심은 $log-likelihood$가 concave이므로 1차 도함수로 최적값을 찾을 수 있다는 것입니다.
+
+
 
 
 ## covariance matrix type

@@ -46,9 +46,9 @@ $$\lambda =\left\{ { w }_{ m },{ \mu  }_{ m },{ \sum   }_{ m } \right\} ,m=1,\cd
 
 그렇다면 혼합 가우시안 모델은 어떤 방식으로 분포를 추정할까요? 단일 가우시안 분포는 convex하기 때문에 해가 정확하게 딱 정해져 있습니다. 그래서 쉽게 최대우도추정법(Maximum likelihood estimation)으로 최적값을 찾아낼 수 있었습니다. 하지만 혼합 가우시안 모델은 convex하지 않아 정해진 최적값을 한 번에 찾을 수 없기 때문에 휴리스틱 기법들로 풀어나가야 합니다. 
 
-<div align="center"><a href="https://imgur.com/4POAWm8"><img src="https://i.imgur.com/4POAWm8.gif" title="source: imgur.com" /></a></div>
+<div align="center"><a href="https://imgur.com/4POAWm8"><img src="https://i.imgur.com/4POAWm8.gif" /></a></div>
 
-그 중 EM알고리즘(Expectaion-Maximination Algorithm)을 사용하여 추정할 수 있습니다. 이 알고리즘은 매개변수에 관한 추정값으로 log-likelihood의 기댓값을 계산하는 expectation 단계와 이 기댓값을 최대화하는 maximization 단계를 번갈아가며 적용합니다. 위 그림은 실제로 휴리스틱 알고리즘으로 분포를 추정해 나가는 모습입니다.
+그 중 EM알고리즘(Expectaion-Maximination Algorithm)을 사용하여 추정할 수 있습니다. 이 알고리즘은 매개변수에 관한 추정값으로 log-likelihood의 기댓값을 계산하는 expectation 단계와 이 기댓값을 최대화하는 maximization 단계를 번갈아가며 적용합니다. 위 그림은 실제로 휴리스틱 알고리즘으로 분포를 추정해 나가는 모습입니다. 간헐천의 대기 시간에 따른 폭발 지속 시간을 나타낸 데이터인데, 이 데이터의 분포를 추정하는 과정입니다. 처음에는 전혀 엉뚱한 분포를 보여주다가 EM 알고리즘의 단계가 진행될수록 정확한 분포를 찾아가는 과정을 확인할 수 있습니다.
 
 
 ![Imgur](https://i.imgur.com/Mqq71HD.png)
