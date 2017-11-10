@@ -19,7 +19,7 @@ tags:
 
 위 그림은 3D로 나타낸 경우이고, 1-D 데이터에 대한 예시는 아래와 같습니다. 회색 음영 부분이 실제 정답 분포입니다. 커널 종류를 바꿔감에 따라서 다른 모양을 추정하는 것도 확인할 수 있습니다.
 
-<div align="center"><a href="https://imgur.com/E95iRvE"><img src="https://i.imgur.com/E95iRvE.png" width=500 /></a></div>
+<div align="center"><a href="https://imgur.com/E95iRvE"><img src="https://i.imgur.com/E95iRvE.png" width="500" /></a></div>
 
 
 ## 자세히 살펴보기
@@ -105,7 +105,7 @@ $$p({\bf x}) = \frac{1}{N}\sum_{n=1}^N\frac{1}{(2\pi h^2)^{D/2}}\exp\left\{-\fra
 사용자가 이 커널을 어떻게 지정하느냐에 따라 최종적으로 추정한 분포의 모습이 바뀌게 됩니다. 가우시안 커널을 사용할 수도 있고, 유니폼을 사용할 수도 있으니 상황에 맞는 적절한 커널을 선택하면 되겠습니다. [위키피디아 커널](https://en.wikipedia.org/wiki/Kernel_(statistics)#Kernel_functions_in_common_use)을 보면 여러 커널들에 대한 설명이 나와 있습니다. 
 
 
-<div align="center"><a href="https://imgur.com/JoFpY65"><img src="https://i.imgur.com/JoFpY65.png" width=500 /></a></div>
+<div align="center"><a href="https://imgur.com/JoFpY65"><img src="https://i.imgur.com/JoFpY65.png" width="500" /></a></div>
 
 ### Smoothing parameter h
 
@@ -113,3 +113,5 @@ $$p({\bf x}) = \frac{1}{N}\sum_{n=1}^N\frac{1}{(2\pi h^2)^{D/2}}\exp\left\{-\fra
 
 ![Imgur](https://i.imgur.com/iumNcnR.png)
 
+
+커널 밀도 추정법은 가우시안 밀도 추정법과는 다르게 데이터의 평균과 분산을 구할 필요가 없습니다. 주어진 데이터를 통해 알맞은 분포를 찾아간다는 특징이 가장 큰 차이점이라고 할 수 있겠습니다.
