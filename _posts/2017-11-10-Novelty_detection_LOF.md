@@ -1,8 +1,8 @@
 ---
 title: 로컬 아웃라이어 팩터(Local Outlier Factors)
-description: 다른 밀도 추정법들이 데이터가 특정 분포를 따른다는 가정 하에 추정하는 방법이었습니다. 하지만 이번에 설명할 커널 밀도 추정은 데이터가 특정 분포를 따르지 않는다는 가정 하에 밀도를 추정하는 방법입니다. 커널 밀도 추정의 기본적인 개념을 알아보고 대표적인 그 중 파젠 윈도우 밀도 추정(Parzen window density estimation)에 대해 알아보겠습니다.
+description: 
 category: Novelty Detection
-tags:
+tags: 오브젝트 근처에 있는 데이터들의 밀도까지 고려하는 로컬 아웃라이어 팩터(Local outlier factor)입니다. 근처 데이터의 밀도까지 고려하는 모델로서 다른 방법론들이 해당 데이터만 고려한다면 이 방법은 근처 데이터까지의 거리와 밀도까지 상대적으로 고려해줍니다.
 - density based novelty detection
 - non-parametric
 ---
