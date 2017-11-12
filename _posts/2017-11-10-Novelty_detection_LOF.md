@@ -1,8 +1,8 @@
 ---
 title: 로컬 아웃라이어 팩터(Local Outlier Factors)
-description: 
+description: 오브젝트 근처에 있는 데이터들의 밀도까지 고려하는 로컬 아웃라이어 팩터(Local outlier factor)입니다. 근처 데이터의 밀도까지 고려하는 모델로서 다른 방법론들이 해당 데이터만 고려한다면 이 방법은 근처 데이터까지의 거리와 밀도까지 상대적으로 고려해줍니다.
 category: Novelty Detection
-tags: 오브젝트 근처에 있는 데이터들의 밀도까지 고려하는 로컬 아웃라이어 팩터(Local outlier factor)입니다. 근처 데이터의 밀도까지 고려하는 모델로서 다른 방법론들이 해당 데이터만 고려한다면 이 방법은 근처 데이터까지의 거리와 밀도까지 상대적으로 고려해줍니다.
+tags: 
 - density based novelty detection
 - non-parametric
 ---
