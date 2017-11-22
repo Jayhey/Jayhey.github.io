@@ -34,6 +34,8 @@ $${ reachability-distance }_{ k }(A,B)=max\left\{ k-distance(B),dist(A,B) \right
 
 다음은 reachability distance입니다. 막상 수식을 보면 복잡하게 보이지만 간단히 말해서 A와 B까지의 거리 그리고 k-distance중 큰 값을 사용하면 됩니다. k-distance 안에 들어오는 object들은 전부 원 위로 밀어내고 원 밖은 그대로 거리 값을 사용하는게 reachability distance입니다. 만약 항상 k-distance를 사용한다면, LOF가 아닌 Simplified-LOF가 됩니다.
 
+
+
 ![Imgur](https://i.imgur.com/9HaaED5.png)
 
 위 그림에서도 A를 기준으로 봤을 때, B와 C까지의 reachability-distance는 원 밖으로 밀어내서 3-distance(A)와 같아집니다. 그리고 D의 경우는 원 밖에 있으니까 그대로 거리값을 사용하게 됩니다.
