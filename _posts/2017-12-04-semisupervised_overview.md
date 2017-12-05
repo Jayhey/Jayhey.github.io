@@ -1,4 +1,3 @@
-```
 ---
 title: Semi-supervised Learning(준지도학습) - Overview
 description: 머신 러닝(machine learning) 방법론들 중 교사 학습(supervised learning) 모델들은 정답 데이터가 꼭 있어야만 학습이 가능하다는 단점이 있습니다. 이러한 단점을 극복하기 위해 준지도 학습(semi-supervised learning)에 대해 살펴보도록 하겠습니다.
@@ -8,8 +7,6 @@ tags:
 - machine learning
 - semi supervised learning
 ---
-
-```
 
 이 카테고리에서 앞으로 다룰 준지도학습(semi-supervised learning)기법들에 대해 자세히 알아보기 전 과연 준지도 학습이란 무엇인가에 대해 간단히 살펴보도록 하겠습니다.
 
