@@ -95,7 +95,7 @@ Spherical보다는 더 정밀하고 마찬가지로 full 공분산 행렬을 사
 
 ### Full
 
-$$\sum  =\left[ \begin{matrix} { \sigma  }_{ 11 } & \cdots  & { \sigma  }_{ 11 } \\ \vdots  & \ddots  & \vdots  \\ { \sigma  }_{ d1 } & \cdots  & { \sigma  }_{ dd } \end{matrix} \right] $$
+$$\sum  =\left[ \begin{matrix} { \sigma  }_{ 11 } & \cdots  & { \sigma  }_{ 1d } \\ \vdots  & \ddots  & \vdots  \\ { \sigma  }_{ d1 } & \cdots  & { \sigma  }_{ dd } \end{matrix} \right] $$
 
 
 <div align="center"><a href="https://imgur.com/dDkxgW5"><img src="https://i.imgur.com/dDkxgW5.png" width="350" /></a></div>
