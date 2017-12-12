@@ -123,7 +123,7 @@ $$\sum  =\left[ \begin{matrix} { { \sigma  } }_{ 1 }^{ 2 } & \cdots  & 0 \\ \vdo
 
 ### Full
 
-$$\sum  =\left[ \begin{matrix} { \sigma  }_{ 11 } & \cdots  & { \sigma  }_{ 11 } \\ \vdots  & \ddots  & \vdots  \\ { \sigma  }_{ d1 } & \cdots  & { \sigma  }_{ dd } \end{matrix} \right] $$
+$$\sum  =\left[ \begin{matrix} { \sigma  }_{ 11 } & \cdots  & { \sigma  }_{ 1d } \\ \vdots  & \ddots  & \vdots  \\ { \sigma  }_{ d1 } & \cdots  & { \sigma  }_{ dd } \end{matrix} \right] $$
 
 Full type은 공분산을 전부 고려합니다. Diagonal만 쓰지 않고 전부 쓰게되면 축이 기울어지게 됩니다. 여기까지 설명을 보시면 왜 굳이 무조건 full을 안쓰고 다른 타입의 공분산 행렬을 쓰는지 이해가 안가시는 분들도 계실 겁니다. 이는 변수가 너무 많아지면 공분산 행렬이 singular matrix가 되어서 역행렬을 구하지 못하게 되기 때문입니다. 이런 위험성이 있기 때문에 보통은 spherical을 많이 사용하며 실제 성능도 괜찮게 나옵니다.
 
