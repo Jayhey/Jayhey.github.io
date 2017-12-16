@@ -65,5 +65,5 @@ k-nearest neighbor 모델에서 k에 1을 넣고도 셀프 트레이닝이 가�
 다음 포스트에서는 generative model에 대해서 알아보도록 하겠습니다. 
 
 > Reference
-> Zhu, Xiaojin. "Semi-supervised learning tutorial." International Conference on Machine Learning (ICML). 2007.
-> Zhu, Xiaojin, and Andrew B. Goldberg. "Introduction to semi-supervised learning." Synthesis lectures on artificial intelligence and machine learning 3.1 (2009): 1-130.
+>* Zhu, Xiaojin. "Semi-supervised learning tutorial." International Conference on Machine Learning (ICML). 2007.
+>* Zhu, Xiaojin, and Andrew B. Goldberg. "Introduction to semi-supervised learning." Synthesis lectures on artificial intelligence and machine learning 3.1 (2009): 1-130.

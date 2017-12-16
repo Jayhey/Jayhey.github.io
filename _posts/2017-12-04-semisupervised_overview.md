@@ -78,4 +78,4 @@ tags:
 다음 포스트부터는 본격적으로 준지도학습 기법들에 대해 알아보도록 하겠습니다
 
 > Reference
-> Zhu, Xiaojin. "Semi-supervised learning tutorial." International Conference on Machine Learning (ICML). 2007.
+>* Zhu, Xiaojin. "Semi-supervised learning tutorial." International Conference on Machine Learning (ICML). 2007.
