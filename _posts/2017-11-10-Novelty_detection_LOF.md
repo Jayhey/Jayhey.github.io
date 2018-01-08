@@ -52,12 +52,12 @@ $$lrd_{ k }(A)=\frac { |{ N }_{ k }(p)| }{ \sum _{ O\in { N }_{ k }(A) } reachab
 
 ![Imgur](https://i.imgur.com/6rJQgYl.png)
 
-### local outlier factor
+### Local Outlier Factor
 
 $${ LOF }_{ k }(A)=\frac { \sum _{ B\in { N }_{ k }(A) }^{  }{ \frac { lrd_{ k }(B) }{ lrd_{ k }(A) }  }  }{ |{ N }_{ k }(A)| } =\frac { \frac { 1 }{ lrd_{ k }(A) } \sum _{ B\in { N }_{ k }(A) }^{  }{ lrd_{ k }(B) }  }{ |{ N }_{ k }(A)| }  $$
 
 
-위 식에서 분자를 보면 local reachability density의 평균을 local reachability density로 나눴다는것을 확인할 수 있습니다. 여기서 산출된 LOF score는 결국 A가 얼마나 이상치인가를 나타내는 정도라고 볼 수 있습니다. 
+위 식에서 분자를 보면 A에 속한 B의 local reachability density의 평균을 $|{N}_{k}|$로 나눴다는것을 확인할 수 있습니다. 여기서 산출된 LOF score는 결국 A가 얼마나 이상치인가를 나타내는 정도라고 볼 수 있습니다. 
 
 쉽게 이해하기 위해서 아래 그림을 예시로 들어보겠습니다. 파란색 점이 A이고 초록색 점이 B입니다. ${ LOF }(A)$값이 크다는 것은, 초록색 점들의 lrd(${lrd}(B)$)가 높고 파란색 점의 lrd(${lrd}(A)$)가 낮다는 말과 같습니다. 즉, 초록색 점들이 밀도가 높은 지역에, 파란색 점은 밀도가 낮은 지역에 위치한다는 말입니다.
 
