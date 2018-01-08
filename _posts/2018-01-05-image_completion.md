@@ -171,6 +171,7 @@ $$\min _{ C }{ \max _{ D }{ E[L(x,{ M }_{ c })+\alpha logD(x,{ M }_{ d })+\alpha
 논문을 읽어보니 image completion 분야에서 굉장히 큰 성과가 나온 듯 합니다. 상당히 인위적이고 rule-base 적인 기존 방법들을 벗어나서 그림의 복잡한 맥락 파악 등을 매우 자연스럽게 해서 실험 결과를 처음 봤을때는 엄청 놀랐습니다. 학습에 약 2달이나 걸렸다는데 실험 설계를 해낸 대학원생들 고생이 여기까지 느껴지는 인상깊은 논문이었습니다.
 
 > Reference
->*High-Resolution Image Inpainting using Multi-Scale Neural Patch Synthesis, [Yang et al. 2017]
->*Context Encoders: Feature Learning by Inpainting [Pathak et al., 2016]
->*https://github.com/tadax/glcic
+>* Yang, Chao, et al. "High-Resolution Image Inpainting using Multi-Scale Neural Patch Synthesis." arXiv preprint arXiv:1611.09969 (2016).
+>* Pathak, Deepak, et al. "Context encoders: Feature learning by inpainting." Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition. 2016.
+>* https://github.com/tadax/glcic
+>* Iizuka, Satoshi, Edgar Simo-Serra, and Hiroshi Ishikawa. "Globally and locally consistent image completion." ACM Transactions on Graphics (TOG) 36.4 (2017): 107.
