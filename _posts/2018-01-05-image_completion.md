@@ -134,7 +134,7 @@ $$L(x,{ M }_{ c })=||{ M }_{ c }\odot (C(x,{ M }_{ c })-x)||^{ 2 }$$
 
 ![Imgur](https://i.imgur.com/l45qMds.png)
 
-<div>Context discriminator의 d_loss(GAN)는 아래와 같습니다. ${M}_{d}$는 random mask입니다.
+<div>Context discriminator의 d_loss(GAN)는 아래와 같습니다. ${M}_{d}$는 random mask입니다.</div>
 
 $$\min _{ C }{ \max _{ D }{ E[logD(x,{ M }_{ d })+log(1-D(C(x,{ M }_{ c }),{ M }_{ c })] }  } $$
 
