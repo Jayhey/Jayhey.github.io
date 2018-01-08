@@ -1,5 +1,5 @@
 ---
-title: Globally and Locally Consistent Image Completion(딥러닝을 이용한 이미지 복구)
+title: Globally and Locally Consistent Image Completion(이미지 복구)
 description: GAN을 활용한 많은 연구들이 있지만 그 중에 굉장히 흥미로운 연구 결과가 있습니다. 이미지의 특정 부분을 지워도 자동으로 원복해주는 딥러닝을 활용한 image completion 기법입니다. 
 category: Deep Learning
 tags: 
