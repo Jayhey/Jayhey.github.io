@@ -6,6 +6,8 @@ tags:
 - overview
 ---
 
+이 포스트에 이미지들은 DSBA 연구실 김형석 박사과정의 세미나 발표자료를 활용하여 편집하였습니다.
+
 # Introduction
 
 GPU 컴퓨팅 기술, 알고리즘의 발전 그리고 폭발적인 데이터의 증가는 자연스럽게 딥러닝의 발전으로 이어졌습니다. 알렉스넷이 발표된 이후 수많은 네트워크 구조들이 등장했으며 지금은 [덴스넷(이전 포스팅)](https://jayhey.github.io/deep%20learning/2017/10/13/DenseNet_1.html)까지 나오게 되었습니다. 이미지 분류쪽은 거의 끝장(?)을 봤다고 해도 좋을 정도로 이미 인간을 넘어섰고 오브젝트 디텍션(object detection)분야 등도 급속도로 발전을 이루어냈습니다. 하지만 그래도 컴퓨터가 넘지 못한 벽이 있었으니..그 벽이 바로 관계 추론(relation reasoning)입니다. 그럼 관계추론이 무엇인지 한 번 살펴보겠습니다. 
@@ -50,7 +52,7 @@ RN의 전반적인 특징은 다음과 같습니다.
 
 최근 visual question answering에서 좋은 성능을 낸 방법론들이 관계 추론에서 어려움을 겪었다면 RN을 활용하면 좋은 성능을 낼 수 있다고 논문 저자들이 설명하고 있습니다. 다양한 데이터셋을 가지고 실험을 했을 때, 어느 한쪽 치우치치 않고 전부 좋은 성능을 내고 있는게 관계 추론에서 굉장히 robust하다고 근거를 대고 있습니다.
 
-<br>
+
 # Relation Networks
 
 RN을 함수로 간단히 표현하면 아래와 같습니다.
@@ -84,4 +86,7 @@ $RN(O)={ f } _ { \phi  }(\sum _ { i,j }^{  }{ { g } _ { \theta  }({ o } _ { i },
 
 이제 Relation Network에 대해 간략하게 살펴보았으니 다음 포스트에서는 네트워크 구조에 대해 자세히 알아보도록 하겠습니다.
 
-> 상기 사용된 이미지들은 DSBA 연구실 김형석 박사과정의 세미나 발표자료를 활용하여 편집하였습니다.
+
+
+> Reference
+>* Santoro, Adam, et al. "A simple neural network module for relational reasoning." arXiv preprint arXiv:1706.01427 (2017).
