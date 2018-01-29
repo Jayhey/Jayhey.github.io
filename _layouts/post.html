@@ -4,3 +4,40 @@ layout: layout
 
 {% assign __ = site.data.languages[site.language] %}
 {% include post.html %}
+
+<div class="Related Posts">
+
+<h4>Related Posts</h4> 
+    
+{% assign maxRelated = 4 %}
+{% assign minCommonTags =  1 %}
+{% assign maxRelatedCounter = 0 %}
+
+{% for post in site.posts %}
+
+    {% assign sameTagCount = 0 %}
+    {% assign commonTags = '' %}
+
+    {% for category in post.categories %}
+        {% if post.url != page.url %}
+        {% if page.categories contains category %}
+            {% assign sameTagCount = sameTagCount | plus: 1 %}
+            {% capture tagmarkup %} <span class="label label-default"></span> {% endcapture %}
+            {% assign commonTags = commonTags | append: tagmarkup %}
+        {% endif %}
+        {% endif %}
+    {% endfor %}
+
+    {% if sameTagCount >= minCommonTags %}
+        <div>
+        <h5><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}{{ commonTags }}</a></h5>
+        </div>
+        {% assign maxRelatedCounter = maxRelatedCounter | plus: 1 %}
+        {% if maxRelatedCounter >= maxRelated %}
+        {% break %}
+        {% endif %}
+    {% endif %}
+
+    {% endfor %}
+
+</div>
