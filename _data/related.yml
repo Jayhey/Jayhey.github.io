@@ -121,8 +121,8 @@
   related:
   - image_completion
   - BAN
-  - DenseNet_3
   - CapsNet_3
+  - DenseNet_3
   - DenseNet_2
 - post: image_completion
   related:
@@ -141,7 +141,7 @@
 - post: Novelty_detection_KNN
   related:
   - Novelty_detection_LOF
-  - DenseNet_2
-  - Novelty_detection_Gaussian
   - CapsNet_3
-  - image_completion
+  - Novelty_detection_Gaussian
+  - DenseNet_2
+  - Novelty_detection_overview
