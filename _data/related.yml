@@ -1,0 +1,147 @@
+- post: daily_1
+  related:
+  - DenseNet_3
+  - Relational_network_1
+  - Novelty_detection_Gaussian
+  - Novelty_detection_MOG
+  - CapsNet_1
+- post: DenseNet_1
+  related:
+  - BAN
+  - DenseNet_2
+  - DenseNet_3
+  - image_completion
+  - CapsNet_3
+- post: DenseNet_2
+  related:
+  - DenseNet_1
+  - DenseNet_3
+  - BAN
+  - CapsNet_3
+  - image_completion
+- post: DenseNet_3
+  related:
+  - BAN
+  - DenseNet_1
+  - DenseNet_2
+  - CapsNet_3
+  - semisupervised_overview
+- post: Novelty_detection_overview
+  related:
+  - Novelty_detection_Gaussian
+  - Relational_network_1
+  - semisupervised_generative_models
+  - semisupervised_overview
+  - BAN
+- post: Relational_network_1
+  related:
+  - Relational_network_2
+  - Novelty_detection_overview
+  - BAN
+  - DenseNet_1
+  - CapsNet_1
+- post: Relational_network_2
+  related:
+  - Relational_network_1
+  - DenseNet_3
+  - Novelty_detection_overview
+  - CapsNet_3
+  - CapsNet_1
+- post: Novelty_detection_Gaussian
+  related:
+  - semisupervised_generative_models
+  - Novelty_detection_Kernel
+  - Novelty_detection_MOG
+  - Novelty_detection_LOF
+  - Novelty_detection_overview
+- post: Novelty_detection_MOG
+  related:
+  - Novelty_detection_Gaussian
+  - Novelty_detection_Kernel
+  - semisupervised_generative_models
+  - DenseNet_3
+  - Novelty_detection_overview
+- post: Novelty_detection_Kernel
+  related:
+  - Novelty_detection_Gaussian
+  - Novelty_detection_LOF
+  - Novelty_detection_MOG
+  - semisupervised_generative_models
+  - Novelty_detection_overview
+- post: Novelty_detection_LOF
+  related:
+  - Novelty_detection_Kernel
+  - Novelty_detection_Gaussian
+  - Novelty_detection_KNN
+  - Novelty_detection_overview
+  - CapsNet_3
+- post: CapsNet_1
+  related:
+  - CapsNet_2
+  - CapsNet_3
+  - image_completion
+  - Relational_network_1
+  - DenseNet_1
+- post: CapsNet_2
+  related:
+  - CapsNet_1
+  - CapsNet_3
+  - DenseNet_2
+  - DenseNet_3
+  - image_completion
+- post: CapsNet_3
+  related:
+  - CapsNet_2
+  - DenseNet_3
+  - DenseNet_2
+  - BAN
+  - image_completion
+- post: semisupervised_overview
+  related:
+  - semisupervised_generative_models
+  - semisupervised_self_training
+  - BAN
+  - DenseNet_3
+  - Novelty_detection_overview
+- post: semisupervised_self_training
+  related:
+  - semisupervised_generative_models
+  - semisupervised_overview
+  - CapsNet_3
+  - DenseNet_2
+  - Novelty_detection_Gaussian
+- post: semisupervised_generative_models
+  related:
+  - semisupervised_self_training
+  - Novelty_detection_Gaussian
+  - semisupervised_overview
+  - Novelty_detection_Kernel
+  - Novelty_detection_MOG
+- post: WESPE
+  related:
+  - image_completion
+  - BAN
+  - DenseNet_3
+  - CapsNet_3
+  - DenseNet_2
+- post: image_completion
+  related:
+  - BAN
+  - DenseNet_1
+  - DenseNet_2
+  - CapsNet_3
+  - DenseNet_3
+- post: BAN
+  related:
+  - DenseNet_1
+  - DenseNet_3
+  - image_completion
+  - DenseNet_2
+  - CapsNet_3
+- post: Novelty_detection_KNN
+  related:
+  - Novelty_detection_LOF
+  - DenseNet_2
+  - Novelty_detection_Gaussian
+  - CapsNet_3
+  - image_completion
