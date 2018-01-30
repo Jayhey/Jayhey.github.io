@@ -57,7 +57,9 @@ Mean 값으로 구할 경우, 세 번째 그림처럼 경계선 위에 있는 (�
 
 ![Imgur](https://i.imgur.com/5lKPfP2.png)
 
-![Imgur](https://i.imgur.com/dU4KdNC.png)
+<a href="https://imgur.com/dU4KdNC"><img src="https://i.imgur.com/dU4KdNC.png" height="200px" /></a>
+
+
 
 k-NN 기법을 사용하여 novelty score를 계산해본 결과  왼쪽 그림 A의 경우 average distance로만 제대로 잡는 것을 확인할 수 있습니다. 오른쪽 B의 경우엔 어떤 distance 정보로도 novelty를 잡아내지 못하고 있습니다. 
 
@@ -69,7 +71,7 @@ k-NN 기법을 사용하여 novelty score를 계산해본 결과  왼쪽 그림 
 
 ![Imgur](https://i.imgur.com/54LzHep.png)
 
-Convex hull까지의 거리는 위 그림을 보면 이해하기 쉽습니다. 이웃들끼리 연결했을 때 그 안에 있으면 거리가 0, 그 밖에 있으면 거리가 0 이상이 됩니다. 즉, 이웃들과의 convex combination과의 거리를 계산하겠다는 뜻입니다. 수식으로 나타내면 아래와 같습니다. ${d}^{k}_{c\_hull}$가 convex combination까지의 거리를 뜻합니다.
+<div>Convex hull까지의 거리는 위 그림을 보면 이해하기 쉽습니다. 이웃들끼리 연결했을 때 그 안에 있으면 거리가 0, 그 밖에 있으면 거리가 0 이상이 됩니다. 즉, 이웃들과의 convex combination과의 거리를 계산하겠다는 뜻입니다. 수식으로 나타내면 아래와 같습니다. ${d}^{k}_{c\_hull}$가 convex combination까지의 거리를 뜻합니다.
 
 
 
@@ -87,15 +89,15 @@ $${ d }^{ k }_{ c\_ hull }={ \left\| { x }-\sum _{ j=1 }^{ k }{ { w }_{ i }{ z }
 
 $${ d }_{ k }^{ hybrid }={ d }_{ k }^{ avg }\times \left( \frac { 2 }{ 1+exp(-{ d }_{ c\_ hull }^{ k }) }  \right) $$
 
-위 식을 잘 살펴보면 알겠지만, convex hull distance에 비례하게 0과 2 사이의 값을 ${ d }_{ k }^{ avg }$에 곱해줍니다. 즉, convex 안에 있으면 penalty를 주지 않고 최대 2배 까지 패널티를 주겠다느 말과 같습니다. 최종적으로 구한 값들은 아래와 같습니다.
+위 식을 잘 살펴보면 알겠지만, convex hull distance에 비례하게 0과 2 사이의 값을 ${ d }_{ k }^{ avg }$에 곱해줍니다. 즉, convex 안에 있으면 penalty를 주지 않고 최대 2배 까지 패널티를 주겠다느 말과 같습니다. 최종적으로 구한 값들은 아래와 같습니다.</div>
 
 ![Imgur](https://i.imgur.com/5lKPfP2.png)
 
-![Imgur](https://i.imgur.com/h7FB1fd.png)
+<a href="https://imgur.com/h7FB1fd"><img src="https://i.imgur.com/h7FB1fd.png" height="200px"/></a>
 
 
 
-${ d }_{ k }^{ hybrid }$를 사용하여 novelty score를 구하면 제대로 삼각형 데이터를 novelty로 잡는 것을 확인할 수 있습니다.
+${ d }_{ k }^{ hybrid }​$를 사용하여 novelty score를 구하면 제대로 삼각형 데이터를 novelty로 잡는 것을 확인할 수 있습니다.
 
 
 
