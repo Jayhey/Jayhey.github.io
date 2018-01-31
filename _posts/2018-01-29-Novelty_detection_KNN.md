@@ -4,7 +4,6 @@ description: 이전까지는 밀도 기반 이상치 탐지 기법들에 알아�
 category: Novelty Detection
 tags:
 - distance based novelty detection
-- non-parametric
 ---
 
 
