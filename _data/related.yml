@@ -11,7 +11,7 @@
   - DenseNet_2
   - DenseNet_3
   - image_completion
-  - CapsNet_3
+  - saimese_network
 - post: DenseNet_2
   related:
   - DenseNet_1
@@ -24,15 +24,15 @@
   - BAN
   - DenseNet_1
   - DenseNet_2
+  - saimese_network
   - CapsNet_3
-  - semisupervised_overview
 - post: Novelty_detection_overview
   related:
   - Novelty_detection_Gaussian
   - Relational_network_1
   - semisupervised_generative_models
   - semisupervised_overview
-  - BAN
+  - saimese_network
 - post: Relational_network_1
   related:
   - Relational_network_2
@@ -43,10 +43,10 @@
 - post: Relational_network_2
   related:
   - Relational_network_1
-  - DenseNet_3
   - Novelty_detection_overview
+  - DenseNet_3
+  - saimese_network
   - CapsNet_3
-  - CapsNet_1
 - post: Novelty_detection_Gaussian
   related:
   - semisupervised_generative_models
@@ -88,7 +88,7 @@
   - CapsNet_3
   - DenseNet_2
   - DenseNet_3
-  - image_completion
+  - saimese_network
 - post: CapsNet_3
   related:
   - CapsNet_2
@@ -101,15 +101,15 @@
   - semisupervised_generative_models
   - semisupervised_self_training
   - BAN
+  - saimese_network
   - DenseNet_3
-  - Novelty_detection_overview
 - post: semisupervised_self_training
   related:
   - semisupervised_generative_models
   - semisupervised_overview
   - CapsNet_3
+  - saimese_network
   - DenseNet_2
-  - Novelty_detection_Gaussian
 - post: semisupervised_generative_models
   related:
   - semisupervised_self_training
@@ -122,8 +122,8 @@
   - image_completion
   - BAN
   - CapsNet_3
+  - saimese_network
   - DenseNet_3
-  - DenseNet_2
 - post: image_completion
   related:
   - BAN
@@ -135,13 +135,27 @@
   related:
   - DenseNet_1
   - DenseNet_3
+  - saimese_network
   - image_completion
   - DenseNet_2
-  - CapsNet_3
 - post: Novelty_detection_KNN
   related:
   - Novelty_detection_LOF
   - CapsNet_3
   - Novelty_detection_Gaussian
   - DenseNet_2
+  - saimese_network
+- post: Novelty_detection_clustering
+  related:
+  - Novelty_detection_KNN
   - Novelty_detection_overview
+  - semisupervised_overview
+  - Novelty_detection_Gaussian
+  - Novelty_detection_LOF
+- post: saimese_network
+  related:
+  - BAN
+  - DenseNet_3
+  - semisupervised_overview
+  - DenseNet_1
+  - CapsNet_3
