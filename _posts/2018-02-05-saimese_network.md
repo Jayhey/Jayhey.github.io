@@ -181,3 +181,7 @@ siamese_net.compile(loss="binary_crossentropy",optimizer=optimizer)
 
 
 
+
+> Reference
+>* Koch, Gregory, Richard Zemel, and Ruslan Salakhutdinov. "Siamese neural networks for one-shot image recognition." ICML Deep Learning Workshop. Vol. 2. 2015.
+>* https://sorenbouma.github.io/blog/oneshot/

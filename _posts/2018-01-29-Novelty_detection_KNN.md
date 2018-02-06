@@ -113,5 +113,4 @@ ${ d }_{ k }^{ hybrid }​$를 사용하여 novelty score를 구하면 제대로
 
 
 > Reference
->
-> > Kang, Pilsung, and Sungzoon Cho. "A hybrid novelty score and its use in keystroke dynamics-based user authentication." *Pattern recognition* 42.11 (2009): 3115-3127.
+>* Kang, Pilsung, and Sungzoon Cho. "A hybrid novelty score and its use in keystroke dynamics-based user authentication." Pattern recognition* 42.11 (2009): 3115-3127.
