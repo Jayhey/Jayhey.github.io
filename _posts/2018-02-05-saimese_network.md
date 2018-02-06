@@ -10,6 +10,8 @@ tags:
 
 # Saimese networks for one-shot learning 
 
+<div align="center"><a href="https://imgur.com/MnzDYu4"><img src="https://i.imgur.com/MnzDYu4.png" width="400px" title="샴 네트워크니까 샴 고양이 두마리!" /></a></div>
+
 ## Introduction
 
 딥러닝이 이렇게 급부상하게 된 가장 큰 이유는, 매우 큰 차원수를 가진 데이터(고화질 이미지, 자연어 등)를 효과적으로 쉽게 처리할 수 있기 때문입니다. 그러나 또한 가장 큰 단점으로, 연산량이 매우 크다는 것과 대량의 트레이닝 데이터가 필요하다는 점을 들 수 있습니다. 
