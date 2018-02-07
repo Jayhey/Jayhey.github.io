@@ -1,5 +1,5 @@
 ---
-title: Saimese Neural Networks for One-shot Image Recognition(샴 네트워크)
+title: Siamese Neural Networks for One-shot Image Recognition(샴 네트워크)
 description: 딥러닝에서 네트워크를 학습시킬 때, 매우 많은 트레이닝 데이터가 필요합니다. 이러한 단점을 극복하여 한 레이블 당 하나의 이미지만 있어도 분류할 수 있게 학습시키는게 one-shot learning입니다.
 category: Deep Learning
 tags:
@@ -8,7 +8,7 @@ tags:
 - transfer learning
 ---
 
-# Saimese networks for one-shot learning 
+# Siamese networks for one-shot learning 
 
 <div align="center"><a href="https://imgur.com/MnzDYu4"><img src="https://i.imgur.com/MnzDYu4.png" width="400px" title="샴 네트워크니까 샴 고양이 두마리!" /></a></div>
 
