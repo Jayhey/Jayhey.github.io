@@ -11,7 +11,7 @@
   - DenseNet_2
   - DenseNet_3
   - image_completion
-  - saimese_network
+  - ENAS
 - post: DenseNet_2
   related:
   - DenseNet_1
@@ -24,29 +24,29 @@
   - BAN
   - DenseNet_1
   - DenseNet_2
-  - saimese_network
-  - CapsNet_3
+  - ENAS
+  - Baysian_1
 - post: Novelty_detection_overview
   related:
   - Novelty_detection_Gaussian
   - Relational_network_1
   - semisupervised_generative_models
   - semisupervised_overview
-  - saimese_network
+  - BAN
 - post: Relational_network_1
   related:
   - Relational_network_2
   - Novelty_detection_overview
   - BAN
+  - ENAS
   - DenseNet_1
-  - CapsNet_1
 - post: Relational_network_2
   related:
   - Relational_network_1
-  - Novelty_detection_overview
   - DenseNet_3
-  - saimese_network
-  - CapsNet_3
+  - Novelty_detection_overview
+  - ENAS
+  - Baysian_1
 - post: Novelty_detection_Gaussian
   related:
   - semisupervised_generative_models
@@ -60,7 +60,7 @@
   - Novelty_detection_Kernel
   - semisupervised_generative_models
   - DenseNet_3
-  - Novelty_detection_overview
+  - ENAS
 - post: Novelty_detection_Kernel
   related:
   - Novelty_detection_Gaussian
@@ -87,29 +87,29 @@
   - CapsNet_1
   - CapsNet_3
   - DenseNet_2
+  - ENAS
   - DenseNet_3
-  - saimese_network
 - post: CapsNet_3
   related:
   - CapsNet_2
   - DenseNet_3
   - DenseNet_2
   - BAN
-  - image_completion
+  - DenseNet_1
 - post: semisupervised_overview
   related:
   - semisupervised_generative_models
   - semisupervised_self_training
   - BAN
+  - Baysian_1
   - saimese_network
-  - DenseNet_3
 - post: semisupervised_self_training
   related:
   - semisupervised_generative_models
   - semisupervised_overview
   - CapsNet_3
+  - Baysian_1
   - saimese_network
-  - DenseNet_2
 - post: semisupervised_generative_models
   related:
   - semisupervised_self_training
@@ -119,25 +119,25 @@
   - Novelty_detection_MOG
 - post: WESPE
   related:
-  - image_completion
   - BAN
+  - image_completion
   - CapsNet_3
-  - saimese_network
   - DenseNet_3
+  - Baysian_1
 - post: image_completion
   related:
   - BAN
   - DenseNet_1
   - DenseNet_2
+  - ENAS
   - CapsNet_3
-  - DenseNet_3
 - post: BAN
   related:
   - DenseNet_1
   - DenseNet_3
+  - Baysian_1
   - saimese_network
-  - image_completion
-  - DenseNet_2
+  - ENAS
 - post: Novelty_detection_KNN
   related:
   - Novelty_detection_LOF
@@ -145,17 +145,31 @@
   - Novelty_detection_Gaussian
   - DenseNet_2
   - saimese_network
-- post: Novelty_detection_clustering
-  related:
-  - Novelty_detection_KNN
-  - Novelty_detection_overview
-  - semisupervised_overview
-  - Novelty_detection_Gaussian
-  - Novelty_detection_LOF
 - post: saimese_network
+  related:
+  - saimese_network
+  - BAN
+  - DenseNet_3
+  - DenseNet_1
+  - semisupervised_overview
+- post: Baysian_1
+  related:
+  - saimese_network
+  - BAN
+  - DenseNet_3
+  - DenseNet_1
+  - semisupervised_overview
+- post: ENAS
   related:
   - BAN
   - DenseNet_3
-  - semisupervised_overview
   - DenseNet_1
-  - CapsNet_3
+  - image_completion
+  - Baysian_1
+- post: ection_clustering
+  related:
+  - Novelty_detection_overview
+  - Novelty_detection_KNN
+  - semisupervised_overview
+  - Novelty_detection_Gaussian
+  - Novelty_detection_LOF
