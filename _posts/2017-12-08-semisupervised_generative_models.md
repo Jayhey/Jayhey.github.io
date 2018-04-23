@@ -13,7 +13,7 @@ tags:
 
 ## Discriminative vs. Generative
 
-분류(Classification) 문제는 크게 Generative model과 discriminative model로 나눌 수 있습니다. 조금 생소한 부분이라고 할 수도 있지만 우리가 잘 알고있는 머신러닝 방법들 중 다중회귀분석, 나이브 베이지안 분류기 등 클래스를 분류하는데 집중하는 모델들이 discriminative model입니다. 반면에 generative model은 우도(likelihood)나 사후 확률(posterior probability)를 사용하여 분류 경계선(decision boundary)를 만듭니다. [이상치 탐지 기법 중 밀도 기반 추정법](https://jayhey.github.io/category/#/Novelty%20Detection)들이 대표적인 generative model이라고 할 수 있습니다.
+분류(Classification) 문제는 크게 Generative model과 discriminative model로 나눌 수 있습니다. 조금 생소한 부분이라고 할 수도 있지만 우리가 잘 알고있는 머신러닝 방법들 중 로지스틱 회귀분석(logistic regression)처럼 클래스를 분류하는데 집중하는 모델들이 discriminative model입니다. 반면에 generative model은 우도(likelihood)나 사후 확률(posterior probability)를 사용하여 분류 경계선(decision boundary)를 만듭니다. [이상치 탐지 기법 중 밀도 기반 추정법](https://jayhey.github.io/category/#/Novelty%20Detection)들이 대표적인 generative model이라고 할 수 있습니다.
 
 <div align = "center"><a href="https://imgur.com/fVlrzkU"><img src="https://i.imgur.com/fVlrzkU.png" width="450px" /></a></div>
 
