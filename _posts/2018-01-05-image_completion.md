@@ -34,7 +34,8 @@ Image completion에는 여러 종류가 있는데 사물 지우기(Object remova
 
 유튜브 영상을 보시면 상당히 뛰어난 성능을 보여주는 것을 알 수 있습니다.
 
-<iframe width="1903" height="764" src="https://www.youtube.com/embed/qzIbDf_GfAk" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/5Ua4NUKowPU?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
 ## Related work
 
