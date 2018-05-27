@@ -31,7 +31,7 @@ tags:
 
 모델 압축같은 경우는 사전 학습된 모델(pretrained model)에 SVD(Singular Vector Decomposition - 특이값분해)를 적용하여 적용하는 방식도 있었습니다. 또한 사전학습된 모델을 조금씩 잘라내면서 특정 값 이하로 내려가는 파라미터들을 전부 0으로 바꿔버려 sparse matrix를 생성하는 방식을 사용하는 방법도 있었습니다. Deep compression이라는 논문도 있습니다.
 
-<div align='center'><a href="https://imgur.com/U6GiQMR"><img src="https://i.imgur.com/U6GiQMR.png" title='Deep compression'width="400px" /></a></div>
+<div align='center'><a href="https://imgur.com/U6GiQMR"><img src="https://i.imgur.com/U6GiQMR.png" title='Deep compression' width="400px" /></a></div>
 
 ### CNN Microarchitecture & Macroarchitecture
 
