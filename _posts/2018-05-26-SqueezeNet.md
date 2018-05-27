@@ -29,9 +29,9 @@ tags:
 
 ### Model Compression
 
-모델 압축같은 경우는 사전 학습된 모델(pretrained model)에 SVD(Singular Vector Decomposition - 특이값분해)를 적용하여 적용하는 방식도 있었습니다. 또한 사전학습된 모델을 조금씩 잘라내면서 특정 값 이하로 내려가는 파라미터들을 전부 0으로 바꿔버려 sparse matrix를 생성하는 방식을 사용하는 방법도 있었습니다. Deep compression이라는 논문도 있습니다.
+모델 압축같은 경우는 사전 학습된 모델(pretrained model)에 SVD(Singular Vector Decomposition - 특이값분해)를 적용하여 적용하는 방식도 있었습니다. 또한 사전학습된 모델을 조금씩 잘라내면서 특정 값 이하로 내려가는 파라미터들을 전부 0으로 바꿔버려 sparse matrix를 생성하는 network pruning이라는 방식도 있습니다.
 
-<div align='center'><a href="https://imgur.com/U6GiQMR"><img src="https://i.imgur.com/U6GiQMR.png" title='Deep compression' width="400px" /></a></div>
+<div align='center'><a href="https://imgur.com/U6GiQMR"><img src="https://i.imgur.com/U6GiQMR.png" title='Network pruning' width="400px" /></a></div>
 
 ### CNN Microarchitecture & Macroarchitecture
 
@@ -50,7 +50,7 @@ CNN의 구성 요소인 convolution은 얀 리쿤이 처음 제안한 이후로 
 2. Decrease the number of input channels to 3x3 filters
     * 만약 모델의 레이어(layer) 하나가 전부 3x3 필터로 구성되어있다면 파라미터의 총 수는 (input channel) x (number of filters) x (3x3)개와 같습니다. 따라서 3x3 필터 자체의 수를 줄이고 이에 더해 3x3으로 들어가는 input channel의 수도 줄여아합니다. 논문에서는 squeeze layer를 사용하여 input channel -> 3x3 filter로의 수를 줄여버립니다.
 3. Downsample late in the network so that convolution layers have large activation
-    * Downsampling part를 네트워크 후반부에 집중시키는 방법도 사용합니다. 보통 downsampe은 max(or average) pooling 또는 필터 자체의 stride를 높이는 방식으로 이미지의 spatial resolution을 줄이게됩니다. 이렇게 줄여서 한 번에 필터가 볼 수 있는 영역을 좁히면서 해당 이미지의 정보를 압축시키는 것입니다. (이에 대한 좀 더 자세한 설명은 [CapsNet -1 포스트](https://jayhey.github.io/deep%20learning/2017/11/28/CapsNet_1/) pooling 파트를 참고하시면 좋을 것 같습니다) 논문의 저자들은 모든 조건이 동등하다는 가정하에서 큰 activation map을 가지고 있을수록 성능이 더 높다는 것에서 영감을 얻었습니다. 따라서 스퀴즈넷에서는 네트워크 후반부에 downsample을 넣는 방법을 취합니다.
+    * Downsampling part를 네트워크 후반부에 집중시키는 방법도 사용합니다. 보통 downsample은 max(or average) pooling 또는 필터 자체의 stride를 높이는 방식으로 이미지의 spatial resolution을 줄이게됩니다. 이렇게 줄여서 한 번에 필터가 볼 수 있는 영역을 좁히면서 해당 이미지의 정보를 압축시키는 것입니다. (이에 대한 좀 더 자세한 설명은 [CapsNet -1 포스트](https://jayhey.github.io/deep%20learning/2017/11/28/CapsNet_1/) pooling 파트를 참고하시면 좋을 것 같습니다) 논문의 저자들은 모든 조건이 동등하다는 가정하에서 큰 activation map을 가지고 있을수록 성능이 더 높다는 것에서 영감을 얻었습니다. 따라서 스퀴즈넷에서는 네트워크 후반부에 downsample을 넣는 방법을 취합니다.
 
 일단 1번과 2번은 CNN 전체 파라미터 수를 줄이면서 정확도를 최대한 보존하는 것에 초점을 맞췄습니다. 3번의 경우는 파라미터 수가 제한된 상황에서 정확도를 최대화 시키는 방식입니다. 이제 이렇게 3가지 전략을 적용시키는 fire module에 대하여 알아보도록 하겠습니다.
 
@@ -113,12 +113,12 @@ $$ { e }_{ i,1x1 }=SR\times{e}_{i}$$
 
 여기서 SR은 squeeze layer에서 expand layer로 들어가는 input channel의 수를 줄여주는 역할을 합니다. 논문에서는 SR을 [0.125, 1.0]의 범위에서 조금씩 바꿔봐며 실험을 진행합니다. 위 그림을 보시면 SR이 0.125롤 넘어가도 모델 사이즈가 조금씩 커지긴 하지만 성능이 더 좋아지는 것을 확인할 수 있습니다. 거의 0.75일 때 최고점을 찍고 그 이후로는 정확도가 올라가지는 않습니다. 다른 메타파라미터는 다음과 같이 설정했습니다. 
 
-${base}_{e}=128$, ${incr}_{e}=128$, ${pct}_{3x3}=0.5%
+<div>${base}_{e}=128$, ${incr}_{e}=128$, ${pct}_{3x3}=0.5\%$</div>
 
 
 ### Trading off 1x1 and 3x3 filters
 
-다음으로는 3x3 필터의 비율을 정해주는 ${pct}_{3x3}$에 대한 실험이 진행됩니다. 위 그림 (b)에서 ${pct}_{3x3}$의 값을 0.01부터 0.99까지 증가시켰습니다. (a)와 (b)에서 모델 사이즈가 13MB일 때가 같은 모델입니다. ${pct}_{3x3}$가 0.5를 넘어가는 순간부터 모델 사이즈만 커지고 정확도는 증가하지 않습니다.
+<div>다음으로는 3x3 필터의 비율을 정해주는 ${pct}_{3x3}$에 대한 실험이 진행됩니다. 위 그림 (b)에서 ${pct}_{3x3}$의 값을 0.01부터 0.99까지 증가시켰습니다. (a)와 (b)에서 모델 사이즈가 13MB일 때가 같은 모델입니다. ${pct}_{3x3}$가 0.5를 넘어가는 순간부터 모델 사이즈만 커지고 정확도는 증가하지 않습니다. </div>
 
 ## CNN macroarchitecture Design Space Exploration
 
