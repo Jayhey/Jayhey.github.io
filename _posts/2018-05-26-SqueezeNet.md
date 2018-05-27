@@ -134,7 +134,7 @@ $$ { e }_{ i,1x1 }=SR\times{e}_{i}$$
 
 Fire module의 구조를 보면, squeeze layer가 expand layer보다 필터 수가 더 적습니다. 이는 중요한 정보가 layer 사이의 병목에서 사라질 수 있다는 단점이 있습니다. 그러나 bypass connection을 추가하면 중요한 정보도 손실 없이 쉽게 흘러갈 수 있게 만들 수 있습니다.
 
-Microarchitecture를 전부 고정시킨 상태에서 실험한 결과는 아래와 같습니다. 저는 논문을 처음 봤을 때 당연히 complex bypass 버젼이 더 높은 성능이 나올 줄 알았는데 simple bypass 버젼이 더 좋은 성능을 보여주고 있습니다. (혹시 이유를 아시는분은 댓글 부탁드려요...)
+Microarchitecture를 전부 고정시킨 상태에서 실험한 결과는 아래와 같습니다. 저는 논문을 처음 봤을 때 당연히 complex bypass 버젼이 더 높은 성능이 나올 줄 알았는데 simple bypass 버젼이 더 좋은 성능을 보여주고 있습니다. (아마 블랙박스 모델이라 딱 정해진 이유는 없겠지만 혹시 이유를 아시는분은 댓글 부탁드려요...)
 
 ![Imgur](https://i.imgur.com/M8GXcAv.png)
 
