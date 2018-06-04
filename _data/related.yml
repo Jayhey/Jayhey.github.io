@@ -10,8 +10,8 @@
   - BAN
   - DenseNet_2
   - DenseNet_3
+  - SqueezeNet
   - image_completion
-  - ENAS
 - post: DenseNet_2
   related:
   - DenseNet_1
@@ -24,14 +24,14 @@
   - BAN
   - DenseNet_1
   - DenseNet_2
+  - SqueezeNet
   - ENAS
-  - Baysian_1
 - post: Novelty_detection_overview
   related:
   - Novelty_detection_Gaussian
+  - SqueezeNet
   - Relational_network_1
   - semisupervised_generative_models
-  - semisupervised_overview
   - BAN
 - post: Relational_network_1
   related:
@@ -39,14 +39,14 @@
   - Novelty_detection_overview
   - BAN
   - ENAS
-  - DenseNet_1
+  - SqueezeNet
 - post: Relational_network_2
   related:
   - Relational_network_1
+  - SqueezeNet
   - DenseNet_3
   - Novelty_detection_overview
   - ENAS
-  - Baysian_1
 - post: Novelty_detection_Gaussian
   related:
   - semisupervised_generative_models
@@ -59,8 +59,8 @@
   - Novelty_detection_Gaussian
   - Novelty_detection_Kernel
   - semisupervised_generative_models
+  - SqueezeNet
   - DenseNet_3
-  - ENAS
 - post: Novelty_detection_Kernel
   related:
   - Novelty_detection_Gaussian
@@ -88,14 +88,14 @@
   - CapsNet_3
   - DenseNet_2
   - ENAS
-  - DenseNet_3
+  - SqueezeNet
 - post: CapsNet_3
   related:
   - CapsNet_2
   - DenseNet_3
   - DenseNet_2
   - BAN
-  - DenseNet_1
+  - SqueezeNet
 - post: semisupervised_overview
   related:
   - semisupervised_generative_models
@@ -119,25 +119,25 @@
   - Novelty_detection_MOG
 - post: WESPE
   related:
+  - SqueezeNet
   - BAN
   - image_completion
-  - CapsNet_3
   - DenseNet_3
-  - Baysian_1
+  - CapsNet_3
 - post: image_completion
   related:
   - BAN
+  - SqueezeNet
   - DenseNet_1
   - DenseNet_2
   - ENAS
-  - CapsNet_3
 - post: BAN
   related:
   - DenseNet_1
+  - SqueezeNet
   - DenseNet_3
   - Baysian_1
   - saimese_network
-  - ENAS
 - post: Novelty_detection_KNN
   related:
   - Novelty_detection_LOF
@@ -162,14 +162,21 @@
 - post: ENAS
   related:
   - BAN
+  - SqueezeNet
   - DenseNet_3
   - DenseNet_1
   - image_completion
-  - Baysian_1
+- post: SqueezeNet
+  related:
+  - BAN
+  - DenseNet_3
+  - ENAS
+  - DenseNet_1
+  - image_completion
 - post: ection_clustering
   related:
-  - Novelty_detection_overview
   - Novelty_detection_KNN
+  - Novelty_detection_overview
   - semisupervised_overview
   - Novelty_detection_Gaussian
-  - Novelty_detection_LOF
+  - SqueezeNet
