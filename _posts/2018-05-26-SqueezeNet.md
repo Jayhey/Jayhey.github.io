@@ -1,6 +1,6 @@
 ---
 title: SQEEZENET(모델 압축)
-description: 딥러닝의 발달로 분류 정확도가 매우 좋아졌습니다. 하지만 반면급부로 모델의 복잡도는 그만큼 증가하게 됩니다. 이에 따라 모델의 파라미터수와 크기를 줄이면서 정확도를 최대한 유지하고자 하는 연구들도 발전하게됩니다.
+description: 딥러닝의 발달로 분류 정확도가 매우 좋아졌습니다. 하지만 반면급부로 모델의 복잡도 또한 그만큼 증가하게 되었습니다. 이에 따라 모델의 파라미터수와 크기를 줄이면서 정확도를 최대한 유지하고자 하는 연구들도 발전하게됩니다.
 category: Deep Learning
 tags:
 - CNN
@@ -35,12 +35,13 @@ tags:
 
 ### CNN Microarchitecture & Macroarchitecture
 
-CNN의 구성 요소인 convolution은 얀 리쿤이 처음 제안한 이후로 거의 25년 가까이 쓰이고 있습니다. Convolution filter는 보통 height, width, channel 이렇게 3차원으로 이루어져 있습니다. VGG 이전에는 5x5과 11x11 등 다양한 필터 사이즈를 사용했지만, 이후로는 거의 3x3 사이즈를 많이 사용하게됩니다. 이 논문에서는 하나의 모델을 구성하고 있는 특정 부분 등을 ***CNN microarchitecture***이라고 부릅니다.
+CNN의 구성 요소인 convolution은 얀 리쿤이 처음 제안한 이후로 거의 25년 가까이 쓰이고 있습니다. Convolution filter는 보통 height, width, channel 이렇게 3차원으로 이루어져 있습니다. VGG 이전에는 5x5과 11x11 등 다양한 필터 사이즈를 사용했지만, 이후로는 거의 3x3 사이즈를 많이 사용하게됩니다. 이 논문에서는 하나의 모델을 구성하고 있는 특정 부분 등을 ***CNN microarchitecture***이라고 부릅니다. 쉽게 이야기하면 convolution filter의 크기나 갯수같은 모델의 세세한 부분이라고 할 수 있습니다. 
 
-모델의 부분을 CNN microarchitecture라고 한다면 input부터 끝까지 모델의 end-to-end를 ***CNN macroarchitecture***이라고 합니다. 이러한 CNN macroarchitecture로는 VGGNet, ResNet, DenseNet 등 여러 모델들이 존재합니다.
+모델의 부분을 CNN microarchitecture라고 한다면 input부터 끝까지 전체 구조를 ***CNN macroarchitecture***이라고 합니다. 이러한 CNN macroarchitecture로는 VGGNet, ResNet, DenseNet 등 여러 모델들이 존재합니다. 대표적인 예시로 skip connection의 유무가 cnn macroarchitecture라고 할 수 있습니다. 
 
 ## SQUEEZENET: Preserving accuracy with few parameters
 
+논문에서는 네트워크가 최대한 파라미터를 적게 가질 수 있도록 다음과 같은 방법을 제시합니다. 먼저 Fire module이라는 모델 전체를 구성하는 block에 대해 설명합니다. ResNet을 구성하고 있는 residual block과 같은 개념의 block이라고 생각하면 됩니다. 그리고 스퀴즈넷 저
 이제 네트워크가 최대한 파라미터를 적게 가질 수 있도록 하는 전략, Fire module이라는 모델 전체를 구성하는 block 그리고 스퀴즈넷(SqueezeNet)을 디자인하는 전략에 대해 설명하도록 하겠습니다.
 
 ### Architectural design strategies
