@@ -14,7 +14,7 @@ tags:
 
 ## Introduction and Motivation
 
-먼저, 동일한 성능을 가지는 모델이 정확도가 더 낮다면 다음과 같은 장점을 가질 수 있습니다.
+먼저, 동일한 성능을 가지는 모델이 파라미터 수가 더 적다면 다음과 같은 장점을 가질 수 있습니다.
 
 - More efficient distributed training 
     * 병렬학습 때 굉장히 큰 효율이 납니다. (less communication -> fast training)
