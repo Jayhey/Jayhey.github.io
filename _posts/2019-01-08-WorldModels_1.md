@@ -86,7 +86,7 @@ $$P({ z }_{ t+1 }|{ a }_{ t },{ z }_{ t },{ h }_{ t })$$
 #### MDN - RNN
 
 MDN의 기본 가정은 결과값이 여러 개의 가우시안 분포에서 확률적으로 존재하는 것입니다. RNN에 앞서 간단한 2중 FC layer로 하나의 값을 예측하는 MDN을 파이토치 코드로 나타내면 아래와 같습니다. 
-(출처 및 자세한 내용은 [hadmaru's github](https://github.com/hardmaru/pytorch_notebooks/blob/master/mixture_density_networks.ipynb)를 참고하시면 될 것 같습니다. 이러한 방식으로 이상치 탐지를 하는 방법 중 하나인 [혼합 가우시안 밀도 추정법을 설명한 다른 포스트](https://jayhey.github.io/novelty%20detection/2017/11/03/Novelty_detection_MOG/)를 읽어보셔도 좋을 것 같습니다)
+(출처 및 자세한 내용은 [hadmaru's github](https://github.com/hardmaru/pytorch_notebooks/blob/master/mixture_density_networks.ipynb)를 참고하시면 될 것 같습니다. 이러한 방식으로 이상치 탐지를 하는 방법 중 하나인 **[혼합 가우시안 밀도 추정법을 설명한 다른 포스트](https://jayhey.github.io/novelty%20detection/2017/11/03/Novelty_detection_MOG/)**를 읽어보셔도 좋을 것 같습니다)
 
 ```python
 class MDN(nn.Module):
@@ -178,11 +178,11 @@ Controller가 매우 간단한 모델이기 때문에 practical한 장점이 있
 
 ## 정리하면...
 
-이번 포스트에서는 World Models의 전체적인 구조에 대해 살펴봤습니다. 사실 [논문 저자의 블로그 포스팅](https://worldmodels.github.io)내용을 한글로 쉽게 풀어 쓰고 제 의견을 덧붙인 부분이라 틀린 내용이 있을 수도 있습니다. 혹시나 의견 있으시면 댓글 남겨주시면 감사하겠습니다. 다음 포스트에서는 실험 결과와 이 논문의 하이라이트 중 하나인 'dream'에 대하여 포스팅 하도록 하겠습니다. 
+이번 포스트에서는 World Models의 전체적인 구조에 대해 살펴봤습니다. 사실 **[논문 저자의 블로그 포스팅](https://worldmodels.github.io)**내용을 한글로 쉽게 풀어 쓰고 제 의견을 덧붙인 부분이라 틀린 내용이 있을 수도 있습니다. 혹시나 의견 있으시면 댓글 남겨주시면 감사하겠습니다. 다음 포스트에서는 실험 결과와 이 논문의 하이라이트 중 하나인 'dream'에 대하여 포스팅 하도록 하겠습니다. 
 
 
 
 > Reference
->
 > * Ha, D., & Schmidhuber, J. (2018). World Models. arXiv preprint arXiv:1803.10122.
 > * worldmodel blog : https://worldmodels.github.io/
+> * hadmaru's github : https://github.com/hardmaru/pytorch_notebooks/blob/master/mixture_density_networks.ipynb
