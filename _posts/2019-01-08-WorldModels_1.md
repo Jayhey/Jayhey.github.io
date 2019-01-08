@@ -15,15 +15,14 @@ tags:
 
 ## Introduction
 
-<div align="center"><a href="https://imgur.com/Dc2Bx2t"><img src="https://i.imgur.com/Dc2Bx2t.png" title="source: imgur.com" width='500'/></a></div>
+<div align="center"><img src="https://i.imgur.com/Dc2Bx2t.png"  width='500'/></div>
 
 System dynamics의 창시자인 Jay Wright Forrester는 mental model에 관하여 다음과 같은 말을 했다고 합니다.
 
 “The image of the world around us, which we carry in our head, is just a model. Nobody in his head imagines all the world, government or country. He has only selected concepts, and relationships between them, and uses those to represent the real system.”  
   
 쉽게 말해, 사람들이 세상을 바라보고 이해할 때 세상 전체를 온전하게 받아들이는게 아니라 추상화 된 컨셉, 관계 등을 이용한다는 것입니다. 즉, 어떤 실제 사물을 바라보고 할 때 이를 'model'을 통해 걸러진 정보들을 가지고 이해합니다. 
-  
-하루하루 어마어마한 양의 정보가 들어오면 뇌(model)은 이러한 정보들의 spatial & temporal한 추상적인 부분들을 사용합니다. 
+하루하루 어마어마한 양의 정보가 들어오면 뇌(model)은 이러한 정보들의 시공간적인 추상적인 부분들을 사용합니다. 
 
 ![What we see is based on our brain's prediction of the future](https://i.imgur.com/C6kuKhC.png)
 
@@ -36,9 +35,9 @@ System dynamics의 창시자인 Jay Wright Forrester는 mental model에 관하�
 복싱을 예로 들었을 때, 복싱 선수들은 어느 방향으로 움직여 상대의 주먹을 피할지 극도로 짧은 순간 내에 결정합니다. 이는 시각 정보가 뇌까지 들어오는 속도보다 훨씬 짧습니다. 프로 복싱 선수들 같은 경우는 이런 식으로 예측하는 'model'과 그에 반응하는 근육들(controller)들이 잘 훈련되었다고 할 수 있겠습니다(~~inference time이 짧습니다~~).
 
 
-<div align='center'><a href="https://imgur.com/1ccoloG"><img src="https://i.imgur.com/1ccoloG.gif" title="무하마드 알리의 반사신경" /></a></div>
+<div align='center'><img src="https://i.imgur.com/1ccoloG.gif" title="무하마드 알리의 반사신경" /></div>
 
-강화학습 agent 관점에서 RNN은 과거, 현재를 잘 표현할 뿐만 아니라 미래에 대한 정보를 잘 예측할 수 있음이 알려져 있습니다. 이는 모델이 위에서 언급한 spatial & temporal representation을 잘 표현한다는 말과 같습니다. 그러나 이렇게 파라미터가 많은 모델을 학습하고 바로 agent로 사용할 경우 credit assignment problem이 발생할 수 있습니다. 따라서 보통 일반적인 강화학습들은 파라미터 수가 적은 model-free RL을 사용합니다. 
+강화학습 agent 관점에서 RNN은 과거, 현재를 잘 표현할 뿐만 아니라 미래에 대한 정보를 잘 예측할 수 있음이 알려져 있습니다. 이는 모델이 위에서 언급한 시공간적 특성을 잘 표현한다는 말과 같습니다. 그러나 이렇게 파라미터가 많은 모델을 학습하고 바로 agent로 사용할 경우 credit assignment problem이 발생할 수 있습니다. 따라서 보통 일반적인 강화학습들은 파라미터 수가 적은 model-free RL을 사용합니다. 
 
 
 ![Imgur](https://i.imgur.com/lpDY9Yx.png)
