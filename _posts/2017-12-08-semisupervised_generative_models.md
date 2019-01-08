@@ -1,6 +1,6 @@
 ---
 title: 생성 모델(Generative model)
-description: 준지도학습(semi-supervised learning) 방법중에서 가장 간단한 셀프 트레이닝(self training)에 대하여 알아보도록 하겠습니다. 높은 확률값이 나오면 가중치를 주는 간단한 방식으로 손쉽게 모델의 성능 향상을 꾀할 수 있는 테크닉입니다.
+description: 이번에는 준지도학습(semi-supervised learning) 방법 중 하나인 생성 모델(generative model)에 대하여 알아보도록 하겠습니다. 클래스의 분포에 주목하는 방법 중 하나입니다.
 category: Semi-supervised Learning
 tags: 
 - machine learning
