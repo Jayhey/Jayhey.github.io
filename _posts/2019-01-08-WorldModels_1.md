@@ -146,7 +146,7 @@ $${ a }_{ t }={ W }_{ c }\left[ { z }_{ t }{ h }_{ t } \right] +{ b }_{ c }$$
 - ${W}_{c}$: weight matrix
 - ${b}_{c}$: bias vector
 
-논문에서는 유전 알고리즘 중 하나인 CMA-ES(Covatiance-Matrix Adaptation Evolution Strategy)를 사용하여 모델 회적화를 진행합니다. 이 알고리즘은 유동적으로 search space를 조절하는 장점을 가지고 있습니다. 파라미터 수가 수천개 정도로 적은 모델에서 많이 사용되는데, CPU를 사용하여 파라미터를 학습시켰다고 합니다. V와 M은 상당히 파라미터 수가 많으므로 GPU가 필요하다면, C는 확실히 파라미터 수가 적으므로 CPU를 사용하여 학습했습니다. 
+논문에서는 유전 알고리즘 중 하나인 CMA-ES(Covatiance-Matrix Adaptation Evolution Strategy)를 사용하여 모델 회적화를 진행합니다. 이 알고리즘은 유동적으로 search space를 조절하는 장점을 가지고 있습니다. 파라미터 수가 수천개 정도로 적은 모델에서 효과적이므로 많이 사용되는데, CPU를 사용하여 파라미터를 학습시켰다고 합니다. 
 
 
 ### 전체적인 구조
@@ -174,7 +174,7 @@ def rollout(controller):
   return cumulative_reward
 ```
 
-Controller가 매우 간단한 모델이기 때문에 practical한 장점이 있다고 합니다. VAE와 MDN-RNN은 커다란 모델이므로 GPU를 사용하여 모델 학습 및 inference가 가능합니다. 따라서 많은 weight들이 필요한 역할은 V와 M에서 수집한 데이터를 가지고 unsupervised하게 전부 끝내버릴 수 있습니다. 닭 잡는데 소 잡는 칼을 사용할 필요가 없는 것처럼, C를 학습하는 방법에도 굳이 GPU를 사용할 필요가 없습니다. 
+Controller가 매우 간단한 모델이기 때문에 practical한 장점이 있다고 합니다. VAE와 MDN-RNN은 커다란 모델이므로 GPU를 사용하여 모델 학습 및 inference가 가능합니다. 따라서 많은 weight들이 필요한 역할은 V와 M에서 수집한 데이터를 가지고 unsupervised하게 전부 끝내버릴 수 있습니다. 실제 test를 진행할 때, 학습이 끝난 V와 M을 GPU 세션 위에 올려놓고 inference만 진행합니다. 닭 잡는데 소 잡는 칼을 사용할 필요가 없는 것처럼, 파라미터 수가 적은 C는 inference로 나온 값들을 CPU를 사용하여 agent의 action을 결정합니다.
 
 ## 정리하면...
 
