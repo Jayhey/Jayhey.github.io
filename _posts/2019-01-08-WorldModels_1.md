@@ -1,6 +1,6 @@
 ---
 title: Recurrent World Models Facilitate Policy Evolution(World Models) - 1
-description: 2018 Nips oral presentation으로 발표된 구글 브레인 논문입니다. 뇌인지과학 개념을 적용하여 강화학습 과제를 해결하였습니다. 적용한 방식도 굉장히 훌륭하지만 결과도 해당 task들의 SOTA를 찍어버린 놀라운 결과를 보여주고 있습니다.
+description: 2018 Nips oral presentation으로 발표된 구글 브레인 논문입니다. 뇌인지과학 개념을 적용하여 강화학습 과제를 해결하였습니다. 적용한 방식도 굉장히 훌륭하지만 결과도 해당 task들의 SOTA를 찍어버린 놀라운 결과를 보여주고 있습니다. 이번 포스트에선 모델의 전체적인 구조에 대하여 다루도록 하겠습니다.
 category: Deep Learning
 tags:
 - MDN-RNN
@@ -9,7 +9,7 @@ tags:
 - model-based RL
 ---
 
-# World Models
+# World Models - Overview
 
 구글 브레인에서 뇌인지과학 개념을 적용한 놀라운 강화학습 모델을 제안하였습니다. 답보 상태에 있었던 Open AI 과제를 쉽게 풀어버리는 대단한 결과를 보여주었습니다. 2018년 3월에 처음 나온 논문인데 이제서야 읽고 정말 대단하다는 생각이 들었습니다. 실험 결과 뿐만 아니라 실험에 적용한 'dream'이라는 방식도 상당히 놀랍습니다. 
 
