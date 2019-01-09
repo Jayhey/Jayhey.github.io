@@ -89,7 +89,7 @@ $\tau$값을 변화시키는 것에 따라 생성되는 dream environment도 바
 
 1. Collect 10,000 rollouts from a random policy.
 2. Train VAE (V) to encode each frame into a latent vector $ z \in \mathcal{R}^{64}$, and use $V$ to convert the images collected from (1) into the latent space representation.
-3. Train MDN-RNN (M) to model $P({ z }_{ t+1 },{d}_{t+1}|{ a }_{ t },{ z }_{ t },{ h }_{ t })$
+3. <div>Train MDN-RNN (M) to model $P({ z }_{ t+1 },{d}_{t+1}|{ a }_{ t },{ z }_{ t },{ h }_{ t })$</div>
 4. Evolve Controller (C) to maximize the expected survival time inside the virtual environment.
 5. Use learned policy from (4) on actual Gym environment.
 
@@ -134,7 +134,7 @@ $\tau$값이 너무 높아지만 오히려 agent가 너무 빨리 죽어버려�
 
 1. Initialize M, C with random model parameters.
 2. Rollout to actual environment NN times. Agent may learn during rollouts. Save all actions ${a}_{t}$ and observations ${x}_{t}$ during rollouts to storage device.
-3. Train $M$ to model $P\left( { x }_{ t+1 },{ r }_{ t+1 },{ a }_{ t+1 },{ d }_{ t+1 }|{ x }_{ t },{ a }_{ t },{ h }_{ t } \right) $ and train $C$ to optimize expected rewards inside of $M$
+3. <div>Train $M$ to model $P\left( { x }_{ t+1 },{ r }_{ t+1 },{ a }_{ t+1 },{ d }_{ t+1 }|{ x }_{ t },{ a }_{ t },{ h }_{ t } \right) $ and train $C$ to optimize expected rewards inside of $M$</div>
 4. Go back to (2) if task has not been completed.
 
 이미 이전 두 번의 실험에서 한 번의 loop만으로 간단한 task를 해결하는데 충분하는 것을 확인하였습니다. 복잡한 task에서는 2번에서 4번까지 반복하는 것으로 world model을 개선할 수 있습니다. <div>달라진 점이 있다면 ${r}_{t+1}$과 ${a}_{t+1}$까지 맞추는 방향으로 M을 학습합니다.</div> 다음 시점의 reward, action까지 model 학습에 쓰이는 이유는 사실 단순하게 생각할 수 있습니다. Model이 완전히 skill을 체득하게 되면, controller가 더 어려운 skill을 습득하는데 집중할 수 있기 때문입니다.
