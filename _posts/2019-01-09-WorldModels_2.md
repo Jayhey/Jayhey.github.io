@@ -23,15 +23,16 @@ tags:
 
 ![Imgur](https://i.imgur.com/3BUtJlr.png)
 
+<div>
 이후에는 V를 통해 구한 ${z}_{t}$와 랜덤 액션 벡터 ${a}_{t}$를 사용하여 MDN-RNN을 학습하였습니다. $P({ z }_{ t+1 }|{ a }_{ t },{ z }_{ t },{ h }_{ t })$ 이 수식을 보면 MDN-RNN을 학습시키는데 필요한 요건이 갖추어진 것을 확인할 수 있습니다.
-
+</div>
 V와 M만 가지고는 단순히 프레임을 압축하고 다음 프레임을 예측하는 것 밖에 못하기 때문에 실제 reward를 구할 수 없습니다. Reward에 직접적으로 영향을 끼치는 C는 파라미터 수가 867개로 매우 적기 때문에 CMA-ES를 사용하여 최적화 시킵니다. 전체적인 과정은 다음과 같습니다.
-
 
 1. Collect 10,000 rollouts from a random policy
 2. Train VAE(V) to encode each frame into a latent vector $z \in \mathcal{R}^{32}$
-3. Train MDN-RNN(M) to model $P({ z }_{ t+1 }|{ a }_{ t },{ z }_{ t },{ h }_{ t })$
+3. <div>Train MDN-RNN(M) to model $P({ z }_{ t+1 }|{ a }_{ t },{ z }_{ t },{ h }_{ t })$</div>
 4. Evolve Controller(C) to maximize the expected cumulative reward of a rollout
+
 
 
 ### V Model Only
@@ -40,7 +41,9 @@ V와 M만 가지고는 단순히 프레임을 압축하고 다음 프레임을 �
 
 $${ a }_{ t }={ W }_{ c }{ z }_{ t } +{ b }_{ c }$$
 
-<div align='center'><iframe class="imgur-embed" width="100%" height="437" frameborder="0" src="https://i.imgur.com/m4r6jVN.gifv#embed"></iframe></div>
+<div align='center'>
+<img src="https://i.imgur.com/JU5uftV.gif" title="V만 가지고 학습" />
+</div>
 
 학습을 잘 하기는 하지만, 엄청 비틀거리면서 운행하며 급코너 구간에서는 트랙을 벗어나는 모습을 볼 수 있습니다. 100번의 실험을 진행하였을 때 $632\pm 251$점을 얻었으며 이는 OpenAI Gym leaderboard의 다른 방법들과 비슷한 성능입니다. Single layer인 C에 추가적으로 hidden layer를 추가하여 파라미터 수를 증가시키면 $788\pm 141$점으로 향상되기는 하였지만 여전히 아쉬운 면이 있습니다.
 
@@ -49,7 +52,9 @@ $${ a }_{ t }={ W }_{ c }{ z }_{ t } +{ b }_{ c }$$
 
 이번에는 V와 M모두 사용한 결과물입니다. V를 사용하면 현재 어떤 상황인지는 알 수 있지만 V와 M 모두 사용하면 현재 상황 뿐만 아니라 미래 상황에 대한 정보까지 C에 입력할 수 있습니다. 
 
-<div align="center"><iframe class="imgur-embed" width="100%" height="435" frameborder="0" src="https://i.imgur.com/bcVPuvE.gifv#embed"></iframe></div>
+<div align='center'>
+<img src="https://i.imgur.com/6nHdyc0.gif" title="V와 M 보두 사용하여 학습" />
+</div>
 
 확실히 비틀거리는 경우도 훨씬 덜하고 급커브도 부드럽게 돌면서 안정적인 운행을 하는 것을 확인할 수 있습니다. MDN-RNN의 장점, 즉 미래에 대한 확률 분포(${h}_{t}$) 덕분에 안정적인 action decision을 얻을 수 있습니다.
 
@@ -99,13 +104,13 @@ M에서 예측한 latent vector를 V를 사용하여 decode한 결과는 아래�
 
 RNN 모델은 게임 환경을 완전히 모사할 수 있게 학습이 됩니다. 무작위로 생성된 게임 환경의 이미지 데이터만 가지고 게임의 주요한 특징을 잘 잡아낼 수 있습니다. 예를 들어 agent가 왼쪽으로 움직이는 action을 선택한다면 M이 예측하는 dream environment 또한 agent를 왼쪽으로 움직이고 내부 환경을 그에 맞춰 변경시킵니다. 만약 fireball이 날아오는 상황이라면 해당 환경 또한 일관된 방향으로 날아오게끔 표현합니다. 즉, 미래를 일관성있게 잘 예측합니다. $\tau$값을 바꾸면 불확실성을 많이 추가하여 실제 게임 환경보다 훨씬 어렵게 만들 수도 있습니다. 실험 결과 적당히 높은 uncertainty가 dream environment의 불완전한 부분에서 agent가 쉽게 학습하는것을 방지하여 더 좋은 결과가 나왔다고 합니다.
 
-<img src="https://i.imgur.com/U3Zs6fC.gif" title="<좌 : 실제 environment frame, 우 : decoder로 reconstruct된 frame" />
+<div align='center'><img src="https://i.imgur.com/U3Zs6fC.gif" title="<좌 : 실제 environment frame, 우 : decoder로 reconstruct된 frame" /></div>
 
 위 gif파일을 보시면 encode 되는 프레임과는 다르게 다시 reconstruct되는 프레임은 약간 부정확한 것을 확인할 수 있습니다. 특히 몬스터 숫자들이 부정확하게 표현되는데, agent의 생존에 중요한 벽이나 파이어볼은 제대로 잡아내고 있습니다.
 
 ### Cheating the World Model
 
-![Imgur](https://i.imgur.com/pQxYTfE.png)
+<div align='center'><img src="https://i.imgur.com/pQxYTfE.png" title="스트리트 파이터에서 와리가리(?) 중인 모습" /></div>
 
 오락실 좀 가본 분들이라면 위 사진이 무엇인지 바로 아시겠지만, 게임 디자이너가 의도하지 않은 일명 얍삽이(?)입니다. 논문에서도 실험 초기에는 이러한 'generative policy' 현상이 발견되었다고 합니다. 특정 위치에서 약간씩 왔다갔다 하는 경우 파이어볼이 생성되지 않는 경우도 있고, agent가 특정 방향으로 이동할 경우 파이어볼이 사라져 버리는 경우도 있었습니다.
 
