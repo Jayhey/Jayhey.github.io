@@ -13,7 +13,7 @@ tags:
 
 트랙 위에서 자동차를 운전하는 CarRacing-v0과 몬스터들이 쏘는 파이어볼을 피하는 VizDoom 총 두 가지 환경(environment)에서 실험을 진행하였습니다. 
 
-## Car Racing Experiment
+# Car Racing Experiment
 
 첫번째로는 CarRacing-v0데이터 입니다. 매 trial마다 랜덤하게 트랙이 생성되고, top-down 형식의 시점입니다. 정해진 시간 안에 자동차가 최대한 회색의 트랙을 오랫동안 밟을수록 높은 reward를 받습니다. Agent(자동차)의 action벡터는 좌/우회전, 가속 그리고 브레이크로 이루어진 3차원의 벡터입니다.
 
@@ -35,7 +35,7 @@ V와 M만 가지고는 단순히 프레임을 압축하고 다음 프레임을 �
 
 
 
-### V Model Only
+## V Model Only
 
 사실 observation의 정보를 잘 담아낼 수 있는 representation만 가지고 있다면 agent를 학습시키는 것은 어려운 일이 아닙니다. 이전 강화학습 연구들도 이러한 방식으로 학습을 진행한 경우가 많았습니다. 추가적인 실험을 위해 논문에서도 M을 사용하지 않고 V만 사용하여 학습을 진행합니다. 수식으로 나타내면 아래와 같습니다.
 
@@ -48,7 +48,7 @@ $${ a }_{ t }={ W }_{ c }{ z }_{ t } +{ b }_{ c }$$
 학습을 잘 하기는 하지만, 엄청 비틀거리면서 운행하며 급코너 구간에서는 트랙을 벗어나는 모습을 볼 수 있습니다. 100번의 실험을 진행하였을 때 $632\pm 251$점을 얻었으며 이는 OpenAI Gym leaderboard의 다른 방법들과 비슷한 성능입니다. Single layer인 C에 추가적으로 hidden layer를 추가하여 파라미터 수를 증가시키면 $788\pm 141$점으로 향상되기는 하였지만 여전히 아쉬운 면이 있습니다.
 
 
-### Full World Model (V and M)
+## Full World Model (V and M)
 
 이번에는 V와 M모두 사용한 결과물입니다. V를 사용하면 현재 어떤 상황인지는 알 수 있지만 V와 M 모두 사용하면 현재 상황 뿐만 아니라 미래 상황에 대한 정보까지 C에 입력할 수 있습니다. 
 
@@ -62,7 +62,7 @@ $${ a }_{ t }={ W }_{ c }{ z }_{ t } +{ b }_{ c }$$
 
 Full model을 사용하였더니 $906\pm21$점이라는 매우 높은 SOTA급 득점 기록을 세울 수 있었다고 합니다. 해당 실험 환경에서 평균 906점으로 평균 900점을 넘겨서 과제를 완전히 풀었습니다! 기존 Deep RL 방법론들은 입력으로 들어오는 프레임들에 edge-detection등과 같은 전처리 기법과 여러 프레임을 하나로 쌓는 추가적인 과정이 필요합니다. 그러나 논문에서 제안하는 방법론은 직접적으로 RGB 픽셀 값들을 VAE에 집어넣어 효율적으로 ${z}_{t}$를 뽑아낼 수 있습니다. 
 
-### Car Racing Dreams
+## Car Racing Dreams
 
 해당 방법론의 MDN-RNN은 매 프레임마다 다음 시점 프레임의 latent vector ${z}_{t+1}$를 예측합니다. 그렇다면 새로 관측되는 프레임을 encode하지 않고 예측한 다음 시점의 latent vector를 지속적으로사용한다면 어떤 결과가 나올까요? 이를 'dream'이라는 표현을 사용하였습니다.
 
@@ -73,7 +73,7 @@ $\tau$값을 변화시키는 것에 따라 생성되는 dream environment도 바
 
 
 
-## VizDoom Experiment: Learning inside of a Dream
+# VizDoom Experiment: Learning inside of a Dream
 
 서론에서 실제 사람들이 세상을 바라볼 때 전부를 똑같이 인식하는것이 아닌 뇌 속의 'model'을 통해 추상화된 representation만 바라본다는 언급을 했습니다. 이 가정이 맞다면 방금 이야기 하였듯이 dream environment로 학습한 모델이 실제 세계에서도 잘 작동해야합니다.
 
@@ -81,7 +81,7 @@ $\tau$값을 변화시키는 것에 따라 생성되는 dream environment도 바
 
 학습 데이터는 위와 같습니다. 하나의 rollout당 최대 60초(2100 time steps)까지 진행되는 환경이며 agent는 적이 발사하는 총알? fireball?을 좌 우로 움직이며 피해서 살아남아야 합니다. 20초(750 time steps)까지 살아남을 경우 생존하였다고 판단합니다(~~실제로 사람이 직접 해봐도 생각보다 어려운 게임입니다~~). 
 
-### Procedure
+## Procedure
 
 <div>CarRacing 실험과 비슷하지만 몇 가지 다른 점이 있습니다. 이전 실험에서는 다음 latent vector ${z}_{t}$만 예측해도 된다면, VizDoom에서는 agent가 사망할 수도 있기 때문에 다음 프레임에서 agent의 생존 여부 ${d}_{t}$도 예측하게 하였습니다. </div>
 
@@ -96,7 +96,7 @@ $\tau$값을 변화시키는 것에 따라 생성되는 dream environment도 바
 <div align='center'><img src="https://i.imgur.com/DZU4TNr.gif" title="학습이 완료된 agent" /></div>
 
 
-### Training Inside of the Dream
+## Training Inside of the Dream
 
 M에서 예측한 latent vector를 V를 사용하여 decode한 결과는 아래와 같습니다. 가상으로 꿈 속에서 학습을 진행합니다.
 
@@ -108,7 +108,7 @@ RNN 모델은 게임 환경을 완전히 모사할 수 있게 학습이 됩니�
 
 위 gif파일을 보시면 encode 되는 프레임과는 다르게 다시 reconstruct되는 프레임은 약간 부정확한 것을 확인할 수 있습니다. 특히 몬스터 숫자들이 부정확하게 표현되는데, agent의 생존에 중요한 벽이나 파이어볼은 제대로 잡아내고 있습니다.
 
-### Cheating the World Model
+## Cheating the World Model
 
 <div align='center'><img src="https://i.imgur.com/pQxYTfE.png" title="스트리트 파이터에서 와리가리(?) 중인 모습" /></div>
 
@@ -128,7 +128,7 @@ $\tau=0.1$일 때는 거의 deterministic LSTM과 다르지 않은 결과물이 
 
 $\tau$값이 너무 높아지만 오히려 agent가 너무 빨리 죽어버려서 학습을 제대로 하지 못하는 상황이 발생하는 것을 확인할 수 있습니다.
 
-## Iterative Training Procedure
+# Iterative Training Procedure
 
 논문에서 진행한 실험들은 상대적으로 간단하고 쉬운 task이기 때문에 random policy를 통해 나온 데이터로 괜찮은 model을 생성할 수 있었습니다. 만약 더 정교한 task의 경우에는 어떤 방식으로 접근하면 될까요? 이런 경우에는 다음과 같은 iterative training procedure이 필요하게 됩니다.
 
@@ -151,7 +151,7 @@ $\tau$값이 너무 높아지만 오히려 agent가 너무 빨리 죽어버려�
 ![Imgur](https://i.imgur.com/dkvSJX7.png)
 
 
-## 마치며 
+# 마치며 
 
 오랜만에 정말 재미있게 읽은 논문입니다. 구글 브레인에서 나오는 논문들이 인지과학과는 연관이 있는 경우가 많은데, 이번 논문도 특히 그렇습니다. 뭔가 진짜 사람처럼 생각하는 AI를 만들고자 하는 커다란 목표가 느껴지는 연구였습니다. 제가 올린 포스트들은 결국 원 저자 블로그 요약 + 제 생각을 정리해둔 것이니 저자 블로그도 꼭 다시 읽어보시길 권해드립니다.
 
