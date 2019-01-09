@@ -4,7 +4,7 @@
   - Relational_network_1
   - Novelty_detection_Gaussian
   - Novelty_detection_MOG
-  - CapsNet_1
+  - WorldModels_1
 - post: DenseNet_1
   related:
   - BAN
@@ -29,17 +29,17 @@
 - post: Novelty_detection_overview
   related:
   - Novelty_detection_Gaussian
-  - Relational_network_1
   - SqueezeNet
+  - Relational_network_1
+  - WorldModels_1
   - SENet
-  - semisupervised_generative_models
 - post: Relational_network_1
   related:
   - Relational_network_2
   - Novelty_detection_overview
   - BAN
+  - WorldModels_1
   - ENAS
-  - SENet
 - post: Relational_network_2
   related:
   - Relational_network_1
@@ -49,8 +49,8 @@
   - ENAS
 - post: Novelty_detection_Gaussian
   related:
-  - semisupervised_generative_models
   - Novelty_detection_Kernel
+  - semisupervised_generative_models
   - Novelty_detection_MOG
   - Novelty_detection_LOF
   - Novelty_detection_overview
@@ -59,29 +59,29 @@
   - Novelty_detection_Gaussian
   - Novelty_detection_Kernel
   - semisupervised_generative_models
+  - WorldModels_1
   - SqueezeNet
-  - DenseNet_3
 - post: Novelty_detection_Kernel
   related:
   - Novelty_detection_Gaussian
   - Novelty_detection_LOF
   - Novelty_detection_MOG
   - semisupervised_generative_models
-  - Novelty_detection_overview
+  - WorldModels_1
 - post: Novelty_detection_LOF
   related:
   - Novelty_detection_Kernel
   - Novelty_detection_Gaussian
   - Novelty_detection_KNN
   - Novelty_detection_overview
-  - CapsNet_3
+  - WorldModels_1
 - post: CapsNet_1
   related:
   - CapsNet_2
   - CapsNet_3
   - image_completion
   - Relational_network_1
-  - DenseNet_1
+  - WorldModels_1
 - post: CapsNet_2
   related:
   - CapsNet_1
@@ -93,9 +93,9 @@
   related:
   - CapsNet_2
   - SENet
+  - WorldModels_1
   - DenseNet_3
   - DenseNet_2
-  - BAN
 - post: semisupervised_overview
   related:
   - semisupervised_generative_models
@@ -120,24 +120,24 @@
 - post: WESPE
   related:
   - SqueezeNet
+  - WorldModels_1
   - BAN
   - image_completion
-  - DenseNet_3
   - CapsNet_3
 - post: image_completion
   related:
   - BAN
+  - WorldModels_1
   - SENet
   - SqueezeNet
   - DenseNet_1
-  - DenseNet_2
 - post: BAN
   related:
   - SENet
   - DenseNet_1
   - SqueezeNet
   - DenseNet_3
-  - ENAS
+  - WorldModels_1
 - post: Novelty_detection_KNN
   related:
   - Novelty_detection_LOF
@@ -150,22 +150,22 @@
   - BAN
   - DenseNet_3
   - SENet
+  - WorldModels_1
   - DenseNet_1
-  - semisupervised_overview
 - post: ENAS
   related:
   - BAN
   - SqueezeNet
   - SENet
   - DenseNet_3
-  - DenseNet_1
+  - WorldModels_1
 - post: SqueezeNet
   related:
   - SENet
+  - WorldModels_1
   - BAN
-  - ENAS
   - DenseNet_3
-  - DenseNet_1
+  - ENAS
 - post: visualizing_loss
   related:
   - BAN
@@ -179,11 +179,25 @@
   - SqueezeNet
   - DenseNet_1
   - DenseNet_3
+  - WorldModels_1
+- post: WorldModels_1
+  related:
+  - WorldModels_2
+  - SqueezeNet
+  - BAN
+  - SENet
   - CapsNet_3
+- post: WorldModels_2
+  related:
+  - WorldModels_1
+  - BAN
+  - SqueezeNet
+  - CapsNet_3
+  - DenseNet_3
 - post: ection_clustering
   related:
   - Novelty_detection_KNN
-  - Novelty_detection_overview
   - semisupervised_overview
+  - Novelty_detection_overview
   - Novelty_detection_Gaussian
-  - SqueezeNet
+  - WorldModels_1
