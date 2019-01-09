@@ -13,7 +13,7 @@ tags:
 
 구글 브레인에서 뇌인지과학 개념을 적용한 놀라운 강화학습 모델을 제안하였습니다. 답보 상태에 있었던 Open AI 과제를 쉽게 풀어버리는 대단한 결과를 보여주었습니다. 2018년 3월에 처음 나온 논문인데 이제서야 읽고 정말 대단하다는 생각이 들었습니다. 실험 결과 뿐만 아니라 실험에 적용한 'dream'이라는 방식도 상당히 놀랍습니다. 
 
-# Introduction
+## Introduction
 
 <div align="center"><img src="https://i.imgur.com/Dc2Bx2t.png"  width='500'/></div>
 
@@ -48,7 +48,7 @@ Credit assignment problem란 쉽게 말해 어떤 경우에 얼마나 보상을 
 
 대부분의 model-based RL에서는 실제 environment를 가지고 학습을 진행합니다. 여기서는 서론에서 이야기 했듯이 실제 environment를 large model을 통해 generate 되는 representation으로 대체하여 학습하는 실험도 진행하였습니다. 
 
-# Agent Model
+## Agent Model
 
 ![Imgur](https://i.imgur.com/3PWEREN.png)
 
@@ -59,14 +59,14 @@ Credit assignment problem란 쉽게 말해 어떤 경우에 얼마나 보상을 
 - Controller(C) : Simple single layer linear model
 
 
-## VAE (V) Model
+### VAE (V) Model
 
 ![Imgur](https://i.imgur.com/RVK37xN.png)
 
 먼저 environment의 고차원 데이터를 encode시키는 VAE입니다. 입력 데이터는 영상의 프레임이며 상당히 고차원으로 이루어져 있습니다. 이를 controller에 바로 연결하기에는 꽤나 무리가 있기 때문에 vAE를 거쳐 저차원으로 압축된 latent vector $z$를 사용합니다. 논문에는 자세히 나와있지는 않지만 VAE를 사용한 이유로는 encode되는 latent vector가 가우시안 분포를 따르기 때문에 좀 더 실험 환경에 맞지 않을까 생각합니다. 또한 아래 설명할 MDN-RNN의 결과물인 다음 장면도 여러 개의 가우시안 분포를 따르므로 더 맞는 가정이 될 것입니다.
 
 
-## MDN-RNN (M) Model
+### MDN-RNN (M) Model
 
 VAE가 입력 프레임을 압축시킨다면, MDN-RNN(이하 M)은 시간이 지남에 따라 어떤 상황이 발생하는지 예측합니다. 이렇게 sequential한 데이터를 사용하여 미래를 예측할 때는 RNN계열 네트워크들이 가장 효율적입니다. 논문에서는 RNN에 추가적으로 MDN(mixture density network)개념을 적용합니다. 이를 통해 RNN의 output으로 단순히 deterministic한 $z$값이 아닌 stochastic한 probability density function $p(z)$를 알 수 있습니다. 이렇게 MDN을 사용하게 되면 실제 복잡한 environment를 정해진 deterministic한 값이 아닌 stochastic한 값으로 표현할 수 있습니다. RNN이 하는 역할은 sequential한 다음 장면을 예측하는 것이기 때문에 확률적으로 표현한다면 실제 세계를 좀 더 설명력 있는 방식으로 설명할 수 있습니다.
 
@@ -82,7 +82,7 @@ $$P({ z }_{ t+1 }|{ a }_{ t },{ z }_{ t },{ h }_{ t })$$
 
 여기에 추가적으로 temperature parameter $\tau $를 추가하여 모델의 uncertainty를 조절하였습니다. uncertainty가 높으면 높을수록 예측하는 프레임의 변동성이 높아지게 됩니다. (근데 어떤 방식으로 들어가는지 수식적으로 나온 부분이 없어서 적용 방식은 잘 모르겠습니다)
 
-### MDN - RNN
+#### MDN - RNN
 
 MDN의 기본 가정은 결과값이 여러 개의 가우시안 분포에서 확률적으로 존재하는 것입니다. RNN에 앞서 간단한 2중 FC layer로 하나의 값을 예측하는 MDN을 파이토치 코드로 나타내면 아래와 같습니다. 
 (출처 및 자세한 내용은 [hadmaru's github](https://github.com/hardmaru/pytorch_notebooks/blob/master/mixture_density_networks.ipynb)를 참고하시면 될 것 같습니다. 이러한 방식으로 이상치 탐지를 하는 방법 중 하나인 **[혼합 가우시안 밀도 추정법을 설명한 다른 포스트](https://jayhey.github.io/novelty%20detection/2017/11/03/Novelty_detection_MOG/)**를 읽어보셔도 좋을 것 같습니다)
@@ -134,7 +134,7 @@ def mdn_loss_fn(pi, sigma, mu, y):
 
 위 코드는 단순 FC layer를 예시로 들었습니다. 논문의 MDN-RNN 결과물인 ${z}_{t+1}$의 경우 latent vector를 이루는 하나의 feature마다 $m$개의 가우시안 분포를 따르게 됩니다.
 
-## Controller (C) Model
+### Controller (C) Model
 
 Controller는 environment가 지속적으로 변하는 상황에서 cumulative reward의 기대값을 최대화 하기 위한 action을 정합니다. 논문에서는 V와 M과 따로 학습을 시키기 위하여 일부러 최대한 파라미터 수가 적으면서도 간단한 모델을 만들었습니다. 
 수식으로 나타내면 아래와 같습니다. $\left[ { z }_{ t }{ h }_{ t } \right]$는 concatenate vector이며 전체적으로 simple single layer linear model이라고 할 수 있습니다.
@@ -148,7 +148,7 @@ $${ a }_{ t }={ W }_{ c }\left[ { z }_{ t }{ h }_{ t } \right] +{ b }_{ c }$$
 논문에서는 유전 알고리즘 중 하나인 CMA-ES(Covatiance-Matrix Adaptation Evolution Strategy)를 사용하여 모델 회적화를 진행합니다. 이 알고리즘은 유동적으로 search space를 조절하는 장점을 가지고 있습니다. 파라미터 수가 수천개 정도로 적은 모델에서 효과적이므로 많이 사용되는데, CPU를 사용하여 파라미터를 학습시켰다고 합니다. 
 
 
-## 전체적인 구조
+### 전체적인 구조
 
 종합적으로 정리하면 아래 다이어그램과 같이 나타낼 수 있습니다.
 
@@ -175,7 +175,7 @@ def rollout(controller):
 
 Controller가 매우 간단한 모델이기 때문에 practical한 장점이 있다고 합니다. VAE와 MDN-RNN은 커다란 모델이므로 GPU를 사용하여 모델 학습 및 inference가 가능합니다. 따라서 많은 weight들이 필요한 역할은 V와 M에서 수집한 데이터를 가지고 unsupervised하게 전부 끝내버릴 수 있습니다. 실제 test를 진행할 때, 학습이 끝난 V와 M을 GPU 세션 위에 올려놓고 inference만 진행합니다. 닭 잡는데 소 잡는 칼을 사용할 필요가 없는 것처럼, 파라미터 수가 적은 C는 inference로 나온 값들을 CPU를 사용하여 agent의 action을 결정합니다.
 
-# 정리하면...
+## 정리하면...
 
 이번 포스트에서는 World Models의 전체적인 구조에 대해 살펴봤습니다. 사실 **[논문 저자의 블로그 포스팅](https://worldmodels.github.io)**내용을 한글로 쉽게 풀어 쓰고 제 의견을 덧붙인 부분이라 틀린 내용이 있을 수도 있습니다. 혹시나 의견 있으시면 댓글 남겨주시면 감사하겠습니다. 다음 포스트에서는 실험 결과와 이 논문의 하이라이트 중 하나인 'dream'에 대하여 포스팅 하도록 하겠습니다. 
 
