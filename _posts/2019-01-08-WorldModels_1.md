@@ -182,6 +182,6 @@ Controller가 매우 간단한 모델이기 때문에 practical한 장점이 있
 
 
 > Reference
-> * Ha, D., & Schmidhuber, J. (2018). World Models. arXiv preprint arXiv:1803.10122.
-> * worldmodel blog : https://worldmodels.github.io/
-> * hadmaru's github : https://github.com/hardmaru/pytorch_notebooks/blob/master/mixture_density_networks.ipynb
+> * [Ha, D., & Schmidhuber, J. (2018). World Models. arXiv preprint arXiv:1803.10122.](https://arxiv.org/abs/1803.10122)
+> * [worldmodel blog](https://worldmodels.github.io/) 
+> * [hadmaru's github](https://github.com/hardmaru/pytorch_notebooks/blob/master/mixture_density_networks.ipynb)  
