@@ -36,7 +36,7 @@ tags:
 
 실제로 학습 데이터의 분포를 고려하면, density가 낮은 부분의 경우 학습 후 표현이 잘 되질 않습니다. 즉, 생성기가 제대로 학습을 하지 못합니다. 이러한 부분을 방지하기 위하여 쓰는 방법이 truncation trick입니다. 이는 학습 중에 적용하는게 아닌 학습이 완료된 네트워크의 input을 제어하는 방법입니다. 보통 이전 GAN 모델에선 truncation trick은 $z$에 바로 적용하였습니다. 
 
-$$\bar { w } ={ { \mathbb{E}} }_{ z~ P(z) }\left[ f(z) \right] $$
+$$\bar { w } ={ { \mathbb{E}} }_{ z\sim  P(z) }\left[ f(z) \right] $$
 
 $$ { w }^{ ' }=\overline { w } +\psi \left( w-\bar { w }  \right) $$
 
@@ -104,12 +104,15 @@ ${w}_{1}$을 전체 layer에 적용을 시킨 뒤, ${w}_{2}$는 랜덤하게 lay
 
 $${ l }_{ Z }=\mathbb{E}\left[ \frac { 1 }{ { \epsilon  }^{ 2 } } d\left( G\left( slerp\left( { z }_{ 1 },{ z }_{ 2 };t \right)  \right) ,G\left( slerp\left( { z }_{ 1 },{ z }_{ 2 };t+\epsilon  \right)  \right)  \right)  \right] $$
 
+위 식은 $Z$에서 slerp(spherical interpolation operation)을 수행합니다. 여기서 $t$는 0과 1사이의 유니폼 분포를 따릅니다. 아래 왼쪽 그림을 보시면 interpolation을 간략하게 나타내고 있습니다. 검은색 동그라미가 각각 서로 다른 $z$이고 $t$와 $1-t$만큼 interpolation을 합니다. 다만 $z$는 일반적으로 가우시안 분포를 따르는 경우가 많습니다. 따라서 slerp을 사용합니다.
+
 $${ l }_{ W }=\mathbb{E}\left[ \frac { 1 }{ { \epsilon  }^{ 2 } } d\left( G\left( lerp\left( f({ z }_{ 1 }),f({ z }_{ 2 });t \right) ,lerp\left( f({ z }_{ 1 }),f({ z }_{ 2 });t+\epsilon  \right)  \right)  \right)  \right] $$
 
-위 식에서 
+위 식은 $W$일 때 사용합니다. 달라지는 부분은 $W$ space에서 $slerp$이 아닌 $lerp$(linear interpolation)을 수행하는 것입니다. 이는 이미 mapping function을 거쳤기 때문에 normalized 되지 않았기 때문입니다. 
+또 하나의 차이점으로는 $W$에서의 perceptual path를 구할 때는 $t$가 0 또는 1의 값으로 고정합니다. 그냥 똑같이 유니폼 분포를 따르게 한다면 아래 오른쪽 그림의 노란색 원 처럼 실제 존재하지 않는 벡터 부분이 interpolation 됩니다. 이러면 $W$에서 구한 path가 아무래도 $Z$에서 구한 path보다는 더 불리한 수치가 나오기 마련입니다. 따라서 0 또는 1의 값으로 $w$ 근처의 값만 가지고 계산하게 하였습니다. 수치는 총 10만 개의 샘플을 뽑아 산출 하였으며 $Z$와 $W$ 모두 full path, end path를 전부 계산하였습니다. 정리하면 아래와 같습니다.
 
-첫 번째 식은 $Z$에서 spherical interpolation operation을 수행합니다. 여기서 구한 거리가 full path length 입니다. 두 번째 식은 end path length를 구하는 식입니다. 달라지는 부분은 $W$ space에서 $slerp$이 아닌 $lerp$(linear interpolation)을 수행하는 것입니다. 
-이렇게 굳이 full path 뿐만 아니라 end path를 구하는 이유가 따로 있습니다. $W$를 가지고 full path를 구하게 되면 불리하기 때문입니다. 그냥 직접적으로 $W$를 가지고 구하게 되면 아래 오른쪽 그림의 노란색 동그라미 부분처럼 존재하지 않는 이상한 부분이 생길 수가 있습니다.
+- <div>Full path :  $t\sim U(0,1)$ </div>
+- <div>End path : $t\in \{ 0,1\} $</div>
 
 <div align='center'>
 <img src="https://i.imgur.com/ymAEXb7.png" title="interpolation" width='500'/>
@@ -135,7 +138,7 @@ $$ exp\left( \sum _{ i }^{  }{ H\left( { Y }_{ i }|{ X }_{ i } \right)  }  \righ
 ## 그 외 다른 결과들
 
 <div align='center'>
-<img src="https://i.imgur.com/1GrW9za.png" title="source: imgur.com" width="600"/>
+<img src="https://i.imgur.com/1GrW9za.png" title="침대와 자동차 이미지 생성" width="600"/>
 </div>
 
 다른 결과물들도 상당히 깔금하게 잘 나옵니다. 영상에서 interpolation 과정을 보여주는데 확실히 이전 GAN들보다 자연스러운 것을 확인할 수 있습니다. 
