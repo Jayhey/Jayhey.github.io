@@ -1,5 +1,5 @@
 ---
-title: A Style-Based Generator Architecture for GANs - 1
+title: A Style-Based Generator Architecture for GANs - 2
 description: 2018년 12월에 나온 GAN의 generator 구조 관련 논문입니다. 기존 GAN의 generator(생성기)들의 한계점을 극복하고 한단계 더 나아갈 수 있는 방향을 제시하였습니다. 실험 결과와 어떻게 GAN의 한계를 극복했는지 그 배경에 대해 알아보도록 하겠습니다.
 
 category: Deep Learning
