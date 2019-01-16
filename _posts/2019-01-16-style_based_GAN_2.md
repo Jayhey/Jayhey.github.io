@@ -108,7 +108,7 @@ $${ l }_{ Z }=\mathbb{E}\left[ \frac { 1 }{ { \epsilon  }^{ 2 } } d\left( G\left
 
 $${ l }_{ W }=\mathbb{E}\left[ \frac { 1 }{ { \epsilon  }^{ 2 } } d\left( G\left( lerp\left( f({ z }_{ 1 }),f({ z }_{ 2 });t \right) ,lerp\left( f({ z }_{ 1 }),f({ z }_{ 2 });t+\epsilon  \right)  \right)  \right)  \right] $$
 
-위 식은 $W$일 때 사용합니다. 달라지는 부분은 $W$ space에서 $slerp$이 아닌 $lerp$(linear interpolation)을 수행하는 것입니다. 이는 이미 mapping function을 거쳤기 때문에 normalized 되지 않았기 때문입니다. 
+위 식은 $W$일 때 사용합니다. 달라지는 부분은 $W$ space에서 $slerp$이 아닌 $lerp$(linear interpolation)을 수행하는 것입니다. 이는 이미 mapping function을 거친 $W$는 normalized 된 상태가 아니기 때문입니다. 
 또 하나의 차이점으로는 $W$에서의 perceptual path를 구할 때는 $t$가 0 또는 1의 값으로 고정합니다. 그냥 똑같이 유니폼 분포를 따르게 한다면 아래 오른쪽 그림의 노란색 원 처럼 실제 존재하지 않는 벡터 부분이 interpolation 됩니다. 이러면 $W$에서 구한 path가 아무래도 $Z$에서 구한 path보다는 더 불리한 수치가 나오기 마련입니다. 따라서 0 또는 1의 값으로 $w$ 근처의 값만 가지고 계산하게 하였습니다. 수치는 총 10만 개의 샘플을 뽑아 산출 하였으며 $Z$와 $W$ 모두 full path, end path를 전부 계산하였습니다. 정리하면 아래와 같습니다.
 
 - <div>Full path :  $t\sim U(0,1)$ </div>
