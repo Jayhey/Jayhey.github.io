@@ -123,9 +123,9 @@ $${ l }_{ W }=\mathbb{E}\left[ \frac { 1 }{ { \epsilon  }^{ 2 } } d\left( G\left
 만약 제대로 latent space가 dientangle 하다면 특성을 나누는 정확한 방향 벡터를 찾아낼 수 있다는 개념에서 출발한 평가 지표입니다. 선형적인 초평면(linear hyperplane)을 가지고 이를 나눌 수 있다면 이는 latent space가 얽혀 있지 않다고 할 수 있습니다. 이를 위해 기존 celebA-HQ 데이터 셋의 사진 특성에 대한 40개의 변수를 이진 분류할 수 있는 40개의 auxiliary classification network를 학습했다고 합니다.
 
 이후 생성기로 생성한 20만장의 이미지를 auxiliary network에 집어넣어 분류를 시킵니다. 다만 완전히 다 맞출 수 없기 때문에 신뢰도가 높은 상위 50%의 이미지만 가지고 갑니다.
-
+<div>
 이후 linear SVM을 사용하여 분류를 시킵니다. 입력 변수는 생성된 이미지의 원래 $z$와 $w$값입니다. Linear SVM으로 분류가 잘 된다면 이는 linear hyperplane만으로도 특성을 잘 잡아낼 수 있다는 말과 같습니다. 측정 지표는 conditional cross entropy $H(Y|X)$를 사용했으며 $X$는 SVM으로 예측한 레이블, $Y$는 auxiliary network로 분류한 레이블 입니다. 최종 평가 지표는 아래 식과 같습니다.
-
+</div>
 $$ exp\left( \sum _{ i }^{  }{ H\left( { Y }_{ i }|{ X }_{ i } \right)  }  \right) $$
 
 <div align='center'>
