@@ -126,6 +126,7 @@ $${ l }_{ W }=\mathbb{E}\left[ \frac { 1 }{ { \epsilon  }^{ 2 } } d\left( G\left
 <div>
 이후 linear SVM을 사용하여 분류를 시킵니다. 입력 변수는 생성된 이미지의 원래 $z$와 $w$값입니다. Linear SVM으로 분류가 잘 된다면 이는 linear hyperplane만으로도 특성을 잘 잡아낼 수 있다는 말과 같습니다. 측정 지표는 conditional cross entropy $H(Y|X)$를 사용했으며 $X$는 SVM으로 예측한 레이블, $Y$는 auxiliary network로 분류한 레이블 입니다. 최종 평가 지표는 아래 식과 같습니다.
 </div>
+
 $$ exp\left( \sum _{ i }^{  }{ H\left( { Y }_{ i }|{ X }_{ i } \right)  }  \right) $$
 
 <div align='center'>
