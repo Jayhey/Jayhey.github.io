@@ -1,10 +1,10 @@
 - post: daily_1
   related:
+  - yoso
   - DenseNet_3
   - Relational_network_1
   - Novelty_detection_Gaussian
   - Novelty_detection_MOG
-  - WorldModels_1
 - post: DenseNet_1
   related:
   - BAN
@@ -18,21 +18,21 @@
   - DenseNet_3
   - BAN
   - SENet
-  - CapsNet_3
+  - style_based_GAN_2
 - post: DenseNet_3
   related:
   - BAN
   - DenseNet_1
   - DenseNet_2
+  - style_based_GAN_1
   - SENet
-  - SqueezeNet
 - post: Novelty_detection_overview
   related:
+  - style_based_GAN_2
+  - style_based_GAN_1
   - Novelty_detection_Gaussian
   - SqueezeNet
   - Relational_network_1
-  - WorldModels_1
-  - SENet
 - post: Relational_network_1
   related:
   - Relational_network_2
@@ -43,17 +43,17 @@
 - post: Relational_network_2
   related:
   - Relational_network_1
+  - style_based_GAN_1
+  - style_based_GAN_2
   - SqueezeNet
   - DenseNet_3
-  - Novelty_detection_overview
-  - ENAS
 - post: Novelty_detection_Gaussian
   related:
   - Novelty_detection_Kernel
   - semisupervised_generative_models
-  - Novelty_detection_MOG
   - Novelty_detection_LOF
-  - Novelty_detection_overview
+  - Novelty_detection_MOG
+  - style_based_GAN_2
 - post: Novelty_detection_MOG
   related:
   - Novelty_detection_Gaussian
@@ -74,28 +74,28 @@
   - Novelty_detection_Gaussian
   - Novelty_detection_KNN
   - Novelty_detection_overview
-  - WorldModels_1
+  - style_based_GAN_2
 - post: CapsNet_1
   related:
   - CapsNet_2
   - CapsNet_3
+  - style_based_GAN_1
   - image_completion
-  - Relational_network_1
-  - WorldModels_1
+  - style_based_GAN_2
 - post: CapsNet_2
   related:
   - CapsNet_1
   - CapsNet_3
   - DenseNet_2
   - SENet
-  - ENAS
+  - style_based_GAN_1
 - post: CapsNet_3
   related:
+  - style_based_GAN_2
   - CapsNet_2
   - SENet
   - WorldModels_1
   - DenseNet_3
-  - DenseNet_2
 - post: semisupervised_overview
   related:
   - semisupervised_generative_models
@@ -109,91 +109,112 @@
   - semisupervised_overview
   - CapsNet_3
   - saimese_network
-  - DenseNet_2
+  - style_based_GAN_2
 - post: semisupervised_generative_models
   related:
   - semisupervised_self_training
   - Novelty_detection_Gaussian
   - semisupervised_overview
+  - style_based_GAN_2
   - Novelty_detection_Kernel
-  - Novelty_detection_MOG
 - post: WESPE
   related:
+  - style_based_GAN_2
+  - style_based_GAN_1
   - SqueezeNet
-  - WorldModels_1
   - BAN
-  - image_completion
-  - CapsNet_3
+  - WorldModels_1
 - post: image_completion
   related:
+  - style_based_GAN_1
+  - style_based_GAN_2
   - BAN
   - WorldModels_1
-  - SENet
   - SqueezeNet
-  - DenseNet_1
 - post: BAN
   related:
   - SENet
   - DenseNet_1
   - SqueezeNet
   - DenseNet_3
-  - WorldModels_1
+  - style_based_GAN_2
 - post: Novelty_detection_KNN
   related:
   - Novelty_detection_LOF
+  - style_based_GAN_2
   - CapsNet_3
   - Novelty_detection_Gaussian
-  - DenseNet_2
-  - Novelty_detection_overview
+  - style_based_GAN_1
 - post: saimese_network
   related:
   - BAN
+  - style_based_GAN_2
   - DenseNet_3
   - SENet
-  - WorldModels_1
-  - DenseNet_1
+  - style_based_GAN_1
 - post: ENAS
   related:
+  - style_based_GAN_2
+  - style_based_GAN_1
+  - yoso
   - BAN
   - SqueezeNet
-  - SENet
-  - DenseNet_3
-  - WorldModels_1
 - post: SqueezeNet
   related:
   - SENet
   - WorldModels_1
   - BAN
-  - DenseNet_3
   - ENAS
+  - DenseNet_3
 - post: visualizing_loss
   related:
   - BAN
   - ENAS
   - DenseNet_3
   - DenseNet_1
-  - SENet
+  - style_based_GAN_2
 - post: SENet
   related:
   - BAN
   - SqueezeNet
   - DenseNet_1
-  - DenseNet_3
-  - WorldModels_1
+  - style_based_GAN_1
+  - style_based_GAN_2
 - post: WorldModels_1
   related:
   - WorldModels_2
   - SqueezeNet
+  - style_based_GAN_2
   - BAN
-  - SENet
-  - CapsNet_3
+  - style_based_GAN_1
 - post: WorldModels_2
   related:
   - WorldModels_1
+  - style_based_GAN_2
   - BAN
   - SqueezeNet
-  - CapsNet_3
+  - style_based_GAN_1
+- post: style_based_GAN_1
+  related:
+  - style_based_GAN_2
+  - image_completion
+  - ENAS
+  - SENet
   - DenseNet_3
+- post: style_based_GAN_2
+  related:
+  - style_based_GAN_1
+  - WorldModels_1
+  - ENAS
+  - BAN
+  - CapsNet_3
+- post: yoso
+  related:
+  - ENAS
+  - BAN
+  - DenseNet_3
+  - SENet
+  - DenseNet_1
 - post: ection_clustering
   related:
   - Novelty_detection_KNN
