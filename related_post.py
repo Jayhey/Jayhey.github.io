@@ -5,6 +5,7 @@ import string
 from konlpy.tag import Komoran
 from sklearn.feature_extraction.text import TfidfVectorizer
 
+
 def get_posts(folder='C:/Users/Jay/blog/_posts'):
     result = {}
     for filepath in glob.glob(folder + "/*"):
@@ -31,8 +32,8 @@ def write_result_to_file(related, file='C:/Users/Jay/blog/_data/related.yml'):
 
 stemmer = Komoran()
 
+
 def tokenize(text):
-    #stems = stemmer.pos(text)
     stems = stemmer.nouns(text)
     return [stem[0] for stem in stems]
 
@@ -40,6 +41,7 @@ def tokenize(text):
 def cosine_sim(text1, text2, vectorizer):
     tfidf = vectorizer.fit_transform([text1, text2])
     return ((tfidf * tfidf.T).A)[0, 1]
+
 
 def get_similarity(num_best=5):
     vectorizer = TfidfVectorizer(tokenizer=tokenize)
@@ -52,7 +54,7 @@ def get_similarity(num_best=5):
 
     result = {}
     for i, row in enumerate(matrix):
-        indices = row.argsort()[-num_best-1:-1][::-1]
+        indices = row.argsort()[-num_best - 1:-1][::-1]
         current_slug = slugs[i]
         result[current_slug] = [slugs[index] for index in indices]
     write_result_to_file(result)
