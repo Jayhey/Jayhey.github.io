@@ -7,7 +7,7 @@ tags:
 - LLM
 ---
 
-# Introduction
+## Introduction
 
 ChatGPT가 나오면서 가장 충격이었던 부분은, 정말 자연스럽게 텍스트를 "생성"할 수 있었다는 점 입니다. 사실 ChatGPT도 다른 방식으로 학습하기는 했지만 결국 GPT 계열의 transformer를 쌓아 올린 모델일 뿐인데, 어떻게 이런 일이 가능했을까요? 
 
