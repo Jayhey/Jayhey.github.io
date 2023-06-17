@@ -1,5 +1,5 @@
 ---
-title: ChatGPT가 작동하는 방법
+title: ChatGPT를 학습하는 방법
 description: ChatGPT 등장 전 LLM들이 가지고 있던 한계와 그 한계를 극복하기 위해 ChatGPT를 학습하는데 어떤 방법을 사용했는지 살펴보겠습니다.
 category: Deep Learning
 tags:
